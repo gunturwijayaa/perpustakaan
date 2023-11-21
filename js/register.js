@@ -44,7 +44,7 @@ buttonSignup.addEventListener('click', async (e) => {
                 timestamp: currentTimeMillis,
                 uid: user.uid,
                 userType: "user"
-            })
+            })//tes
                 alert('User Telah Ditambahkan dengan ID: ' + userRef.key);
 
             // Kosongkan nilai semua field input setelah data berhasil ditambahkan
