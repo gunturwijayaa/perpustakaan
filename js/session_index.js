@@ -33,12 +33,13 @@ import { getDatabase, ref as dbRef, push, onValue } from 'https://www.gstatic.co
       
         onValue(dataRef, (snapshot) => {
           const data = snapshot.val();
-          if (data.userType = "admin") {
-            window.location.href = "/html/form-dashboard.html";
+          if (data.userType == 'admin') {
+            alert("Berhasil login! sebagai " + data.userType);
+              window.location.href = "/html/form-dashboard.html";        
             
-           } else if (data.userType = "user") {
+           } else if (data.userType == "user") {
+            alert("Berhasil login! sebagai " + data.userType);
             document.getElementById('tampilkan-form').style.visibility = 'hidden'
-            
            }
           // var userSnap = (data.userType);
         });
@@ -46,7 +47,7 @@ import { getDatabase, ref as dbRef, push, onValue } from 'https://www.gstatic.co
       //
       
       console.log('user logged in: ' + uid);
-      window.location.href = "http://127.0.0.1:5500/html/form-dashboard.html";
+      // window.location.href = "http://127.0.0.1:5500/html/form-dashboard.html";
       //
       //
     } else {

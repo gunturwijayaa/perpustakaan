@@ -50,7 +50,7 @@ const firebaseConfig = {
                     })
                     if (userType)   //validate userType
                     alert("Berhasil login!");
-                    window.location.href = "/html/form-dashboard.html";
+                    // window.location.href = "/html/form-dashboard.html";
                   })
                   .catch( (error) => {
                     const errorCode = error.code;
