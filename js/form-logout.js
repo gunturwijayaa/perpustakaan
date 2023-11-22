@@ -11,17 +11,21 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebas
     messagingSenderId: "339816014771",
     appId: "1:339816014771:web:aa0e406a41c651018d21c6"
   };
-
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth();
   const buttonLogout = document.getElementById('logout-link');
-  buttonLogout.addEventListener('click',(e)=>{
-    signOut(auth).then(()=> {
+  buttonLogout.addEventListener('click' , ()=>{
+
+    signOut(auth).then(() => {
       //
       alert('Berhasil Log Out');
+      window.location.href = '/user/index.html'
     }).catch((error) => {
       //
       const errorCode = error.code;
       const errorMessage = error.message;
 
-      alert(errorMessage);
+      alert(errorMessage, errorCode);
     });
+
   });

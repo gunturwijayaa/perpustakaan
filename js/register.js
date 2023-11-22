@@ -1,6 +1,6 @@
 //fungsi untuk menambahkan akun admin 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
-import { getDatabase, ref, push } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js';
+import { getDatabase, ref as dbRef, push, set } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js';
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
 
 const firebaseConfig = {
@@ -37,15 +37,24 @@ buttonSignup.addEventListener('click', async (e) => {
             //
             const user = userCredential.user;
 
-            const userRef = push(ref(db, "Users/" + user.uid), {
+            const dataRef = dbRef(db, "Users/" + user.uid);
+            const data = {
                 name: name,
                 email: email,
                 profileImage: "",
                 timestamp: currentTimeMillis,
                 uid: user.uid,
                 userType: "user"
-            })//tes
+            };
+
+            set(dataRef, data)
+            .then(() => {
                 alert('User Telah Ditambahkan dengan ID: ' + userRef.key);
+            }) 
+            .catch((error) => {
+                showMessage("Terjadi kesalahan saat menambahkan akun: " + error.message);
+             });
+                
 
             // Kosongkan nilai semua field input setelah data berhasil ditambahkan
             document.getElementById('name').value = '';

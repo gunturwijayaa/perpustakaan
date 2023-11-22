@@ -18,6 +18,16 @@ const firebaseConfig = {
   const auth = getAuth();
 
     
+  function getuserType() {
+    var email = document.getElementById('email1').value;
+
+    var userRef = database.ref('Users/' + email)
+    userRef.on('value', function(snapshot){
+        var data = snapshot.val()
+
+        alert(data.email)
+    })
+  }
   // Mendengarkan klik pada tombol Sign In
   const buttonSignin = document.getElementById('buttonSignin');
   buttonSignin.addEventListener('click', async (e) => {
@@ -38,9 +48,9 @@ const firebaseConfig = {
                     update(ref(db, "Users/" + user.uid),{
                         last_login: dt,
                     })
-                    //if ()   validate userType
+                    if (userType)   //validate userType
                     alert("Berhasil login!");
-                    window.location.href = "form-dashboard";
+                    window.location.href = "/html/form-dashboard.html";
                   })
                   .catch( (error) => {
                     const errorCode = error.code;
@@ -52,6 +62,8 @@ const firebaseConfig = {
           }
       }
   });
+
+  
   
 
 
