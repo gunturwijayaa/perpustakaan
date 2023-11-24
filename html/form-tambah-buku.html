@@ -108,6 +108,14 @@
                   </a>
                 </li>
               </ul>
+
+              <ul class="menu-sub">
+                <li class="menu-item ">
+                  <a href="form-tambah-buku.html" class="menu-link">
+                    <div data-i18n="Without menu">Tambah kategori</div>
+                  </a>
+                </li>
+              </ul>
             </li>
             <li class="menu-item ">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -287,30 +295,14 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="card mb-4">
-                      <h5 class="card-header">Upload Gambar</h5>
+                      <h5 class="card-header">Tambah Buku</h5>
                       <!-- Account -->
-                      <div class="card-body">
-                        <div class="d-flex align-items-center justify-content-center">
-                          <img
-                            src="../assets/img/avatars/1.png"
-                            alt="user-avatar"
-                            class="d-block rounded"
-                            height="400"
-                            width="300"
-                            id="uploadedAvatar"
-                          />
-                        </div>
-                      </div>
+                     
                       
                       <hr class="my-0" />
                       <div class="card-body">
                         <form id="formAccountSettings" method="POST" onsubmit="return false">
                           <div class="row">
-                            <div class="mb-3 col-md-6">
-                              <label for="kode_buku" class="form-label">Kode Buku</label>
-                              <input class="form-control" type="text" name="kodeBuku" id="kode_buku" placeholder="" readonly />
-                            </div>
-                            
                             <div class="mb-3 col-md-6">
                               <label for="judul-buku" class="form-label">Judul Buku</label>
                               <input
@@ -319,16 +311,6 @@
                                 id="judul_buku"
                                 name="judul buku"
                                 placeholder="judul"
-                              />
-                            </div>
-                            <div class="mb-3 col-md-6">
-                              <label for="penerbit" class="form-label">Penerbit</label>
-                              <input
-                                class="form-control"
-                                type="text"
-                                id="penerbit"
-                                name="penerbit"
-                                placeholder="penerbit"
                               />
                             </div>
                             <div class="mb-3 col-md-6">
@@ -357,25 +339,17 @@
                               <label for="kategori" class="form-label">kategori</label>
                               <select id="kategori" style="cursor: pointer;" class="select2 form-select">
                                 <option value="">Pilih Kategori</option>
-                                <option value="Teknik_Inforamatika">Teknik Informatika</option>
-                                <option value="Management_Informasi">Management Informasi</option>
-                                <option value="Teknik_Komputer">Teknik Komputer</option>
-                                <option value="bitcoin">Bitcoin</option>
+                                <option value="Horror">Horror</option>
+                                <option value="Sejarah">sejarah</option>
+                                <option value="romance">romance</option>
+                                <option value="sastra">sastra</option>
                               </select>
                             </div>
+                            <div class="mb-3 col-md-6" id="uploadedFile">
+                              <label for="pdfFile" class="form-label">Pilih File PDF</label>
+                              <input class="form-control" type="file" id="pdfFile" name="pdfFile" accept=".pdf">
                           </div>
-                          <div class="mt-2">  
-                            <label for="upload"  id="uploadLabel" class="btn btn-primary me-2 " tabindex="0">
-                              <span class="d-none d-sm-block" >Upload Gambar</span>
-                              <i class="bx bx-upload d-block d-sm-none"></i>
-                              <input
-                                type="file"
-                                id="upload"
-                                class="account-file-input"
-                                hidden
-                                accept="image/png, image/jpeg"
-                              />
-                            </label>
+                          </div>
                             <button type="submit" id="saveButton" class="btn btn-primary me-2">Save </button>
                             <button type="reset" id="resetData" class="btn btn-outline-secondary">Reset</button>
                           </div>
