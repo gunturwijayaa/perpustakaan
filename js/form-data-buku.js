@@ -75,9 +75,10 @@ const firebaseConfig = {
           newRow.insertCell(1).innerHTML = book.categoryId || '';
           newRow.insertCell(2).innerHTML = book.downloadsCount || '';
           newRow.insertCell(3).innerHTML = book.viewsCount || '';
+          newRow.insertCell(4).innerHTML = book.description || '';
 
           // Menambahkan tombol pada sel terakhir
-          var actionsCell = newRow.insertCell(4);
+          var actionsCell = newRow.insertCell(5);
           actionsCell.innerHTML = `
               <input type="submit" value="Edit" class="btn btn-warning editData" data-id="${key}" data-bs-toggle="modal" data-bs-target="#modalUpdate">
               <input type="submit" class="btn btn-danger hapusData" data-id="${key}" value="Hapus">
@@ -116,6 +117,7 @@ const firebaseConfig = {
                 categoryId: cells[1].querySelector('input').value,
                 downloadsCount: cells[2].querySelector('input').value,
                 viewsCount: cells[3].querySelector('input').value,
+                description: cells[4].querySelector('input').value,
             };
     
             const bookId = target.getAttribute('data-id');
