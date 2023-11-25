@@ -20,7 +20,7 @@ const firebaseConfig = {
 
       async function getData() {
         const anggota = await db.collection("Anggota").get();
-        const jumlahAnggota = anggota.docs.length; // Menghitung jumlah anggota
+        const jumlahAnggota = anggota.docs.length; // Menghitung jumlah anggota 
         const buku = await db.collection("Data-Buku").get();
         const jumlahBuku = buku.docs.length; // Menghitung jumlah buku
     
