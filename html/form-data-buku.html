@@ -311,7 +311,7 @@
               <div class="card">
                 <div class="head">
                   <div>
-                    <h2 class="numbers"></h2>
+                    <h2 class="numbers"  id="jumlahAnggota"></h2>
                     <p>Anggota</p>
                   </div>
                   <ion-icon name="people-outline" style="font-size: 36px;"></ion-icon>
@@ -322,7 +322,7 @@
               <div class="card">
                 <div class="head">
                   <div>
-                    <h2 class="numbers-buku"></h2>
+                    <h2 class="numbers-buku" id="jumlahBuku"></h2>
                     <p>Buku</p>
                   </div>
                   <ion-icon name="book-outline" style="font-size: 36px;"></ion-icon>
@@ -359,11 +359,11 @@
               <table>
                   <thead>
                       <tr>
-                          <th> Kode Buku <span class="icon-arrow">&UpArrow;</span></th>
-                          <th> Judul Buku <span class="icon-arrow">&UpArrow;</span></th>
-                          <th> Penerbit <span class="icon-arrow">&UpArrow;</span></th>
-                          <th> Penulis <span class="icon-arrow">&UpArrow;</span></th>
-                          <th> Kategori <span class="icon-arrow">&UpArrow;</span></th>
+                          <th> Title <span class="icon-arrow">&UpArrow;</span></th>
+                          <th> Category <span class="icon-arrow">&UpArrow;</span></th>
+                          <th> Download <span class="icon-arrow">&UpArrow;</span></th>
+                          <th> View <span class="icon-arrow">&UpArrow;</span></th>
+                          <th> description <span class="icon-arrow">&UpArrow;</span></th>
                           <th> Lainnya  <span class="icon-arrow">&UpArrow;</span></th>
                       </tr>
                   </thead>
@@ -426,23 +426,18 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
    
-    <!--script koneksi ke firestore-->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="../js/form-data-buku.js"></script>
-    
-
 
     <script src="../assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
 
 
     <!-- Main JS -->
+    <script type="module" src="/js/form-data-buku.js"></script>
     <script src="../assets/js/main.js"></script>
-    <script src="/assets/js/data-buku.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <script src="/assets/dist/sweetalert2.all.js"></script>
     <script src="/assets/dist/sweetalert2.all.min.js"></script>
     <script src="/assets/dist/sweetalert2.js"></script>
