@@ -29,3 +29,4 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebas
     });
 
   });
+  // logout feature
