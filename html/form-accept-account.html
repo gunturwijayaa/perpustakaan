@@ -132,7 +132,7 @@
             <li class="menu-item open active">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
-                <div data-i18n="Form Layouts">Kirim Pesan</div>
+                <div data-i18n="Form Layouts">Terima Pesan</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item active">
@@ -303,7 +303,7 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Kirim Pesan</h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Terima Permintaan</h4>
 
               <!-- Basic Layout & Basic with Icons -->
               <div class="row">
@@ -311,51 +311,95 @@
                 <div class="col-xxl">
                   <div class="card mb-4">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                      <h5 class="mb-0">Kirim Pesan </h5>
+                      <h5 class="mb-0">Accept </h5>
                     </div>
                     <div class="card-body">
-                      <form>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-default-name">Nama</label>
-                          <div class="col-sm-10">
-                            <input type="text" class="form-control" id="nama" placeholder="nama" />
-                          </div>
-                        </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-default-email">Email</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <input
-                                type="text"
-                                id="basic-default-email"
-                                class="form-control"
-                                placeholder="email"
-                                aria-describedby="basic-default-email2"
-                              />
-                              <span class="input-group-text" id="basic-default-email2">@gmail.com</span>
+                      <div class="row">
+                        <div class="col-md mb-4 mb-md-0">
+                          <small class="text-light fw-semibold">Silahkan klik <i class='bx bx-check-square'></i> jika ingin menerima permintaan akses download</small>
+                          <div class="accordion mt-3" id="accordionExample">
+                            <div class="card accordion-item active">
+                              <h2 class="accordion-header" id="headingOne">
+                                <button
+                                  type="button"
+                                  class="accordion-button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#accordionOne"
+                                  aria-expanded="true"
+                                  aria-controls="accordionOne"
+                                >
+                                  Daffa Putra
+                                </button>
+                              </h2>
+        
+                              <div
+                                id="accordionOne"
+                                class="accordion-collapse collapse show"
+                                data-bs-parent="#accordionExample"
+                              >
+                                <div class="accordion-body">
+                                  Lemon drops chocolate cake gummies carrot cake chupa chups muffin topping. Sesame snaps icing
+                                  marzipan gummi bears macaroon dragée danish caramels powder. Bear claw dragée pastry topping
+                                  soufflé. Wafer gummi bears marshmallow pastry pie.
+                                  <i class='bx bx-check-square' style="font-size: 30px;"></i>
+                                </div>
+                              </div>
                             </div>
-                            <div class="form-text">isikan email yang ingin anda tuju !!</div>
+                            <div class="card accordion-item">
+                              <h2 class="accordion-header" id="headingTwo">
+                                <button
+                                  type="button"
+                                  class="accordion-button collapsed"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#accordionTwo"
+                                  aria-expanded="false"
+                                  aria-controls="accordionTwo"
+                                >
+                                  Accordion Item 2
+                                </button>
+                              </h2>
+                              <div
+                                id="accordionTwo"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionExample"
+                              >
+                                <div class="accordion-body">
+                                  Dessert ice cream donut oat cake jelly-o pie sugar plum cheesecake. Bear claw dragée oat cake
+                                  dragée ice cream halvah tootsie roll. Danish cake oat cake pie macaroon tart donut gummies.
+                                  Jelly beans candy canes carrot cake. Fruitcake chocolate chupa chups.
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card accordion-item">
+                              <h2 class="accordion-header" id="headingThree">
+                                <button
+                                  type="button"
+                                  class="accordion-button collapsed"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#accordionThree"
+                                  aria-expanded="false"
+                                  aria-controls="accordionThree"
+                                >
+                                  Accordion Item 3
+                                </button>
+                              </h2>
+                              <div
+                                id="accordionThree"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="headingThree"
+                                data-bs-parent="#accordionExample"
+                              >
+                                <div class="accordion-body">
+                                  Oat cake toffee chocolate bar jujubes. Marshmallow brownie lemon drops cheesecake. Bonbon
+                                  gingerbread marshmallow sweet jelly beans muffin. Sweet roll bear claw candy canes oat cake
+                                  dragée caramels. Ice cream wafer danish cookie caramels muffin.
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-default-message">pesan</label>
-                          <div class="col-sm-10">
-                            <textarea
-                            style="height: 200px;"
-                              id="basic-default-message"
-                              class="form-control"
-                              placeholder="ketik pesan yang ingin anda kirim !!"
-                              aria-describedby="basic-icon-default-message2"
-                            ></textarea>
-                          </div>
-                        </div>
-                        <div class="row justify-content-end">
-                          <div class="col-sm-10">
-                            <button type="submit" id="btn_send_pesan" class="btn btn-primary">Send</button>
-                            <button type="reset" class="btn btn-outline-secondary">Cancel</button>
-                          </div>
-                        </div>
-                      </form>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -412,6 +456,7 @@
     <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
     <script src="../assets/vendor/js/menu.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
     <!-- endbuild -->
 
     <!-- Vendors JS -->

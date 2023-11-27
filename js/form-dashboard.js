@@ -26,7 +26,7 @@ document.addEventListener("click", function (event) {
 async function getData() {
   const buku = await db.collection("Data-Buku").get();
   const jumlahBuku = buku.docs.length; // Menghitung jumlah buku
-  const anggota = await db.collection("Anggota").get();
+  const anggota = await db.collection("Akun-Anggota").get();
   const jumlahAnggota = anggota.docs.length; // Menghitung jumlah anggota
 
   // Memasukkan jumlah anggota ke dalam elemen dengan kelas "numbers"

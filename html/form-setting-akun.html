@@ -15,26 +15,27 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <meta name="description" content="" />
 
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-    <!--logo di pencarian-->
-    <link rel="icon" href="twitter.png" type="assets/img/icon/brands/twitter.png">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="/assets/img/avatars/1.png" type="image/x-icon">
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="../assets/css/demo.css" />
     <link rel="stylesheet" href="../assets/css/form-dashboard.css">
-   
+    
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="/assets/css/form-data-buku.css">
     <link rel="stylesheet" href="/assets/dist/sweetalert2.css">
     <link rel="stylesheet" href="/assets/dist/sweetalert2.min.css">
-
+    
     
 
     <!-- Page CSS -->
@@ -50,25 +51,25 @@
   <body>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
-      <div class="layout-container">
-        <!-- Menu -->
-
-        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-          <div class="app-brand demo">
-           
-           
-           
+        <div class="layout-container">
+          <!-- Menu -->
+  
+          <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+            <div class="app-brand demo">
+             
+             
+             
+              
               <span class="app-brand-text demo menu-text fw-bolder ms-2">Lib - E</span>
-            
-            
-            
-
-            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
-              <i class="bx bx-chevron-left bx-sm align-middle"></i>
-            </a>
-          </div>
-
-          <div class="menu-inner-shadow"></div>
+              
+              
+  
+              <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+                <i class="bx bx-chevron-left bx-sm align-middle"></i>
+              </a>
+            </div>
+  
+            <div class="menu-inner-shadow"></div>
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
@@ -83,7 +84,7 @@
               <span class="menu-header-text">Main Menu</span>
             </li>
             <!-- Layouts -->
-            <li class="menu-item open active">
+            <li class="menu-item open ">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">Master Data</div>
@@ -95,7 +96,7 @@
                     <div data-i18n="Without menu">Data Anggota</div>
                   </a>
                 </li>
-                <li class="menu-item active">
+                <li class="menu-item ">
                   <a href="form-data-buku.html" class="menu-link">
                     <div data-i18n="Without menu">Data Buku</div>
                   </a>
@@ -166,26 +167,17 @@
                 
               </ul>
             </li>
-            <li class="menu-item">
+            <li class="menu-item active">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
                 <div data-i18n="Authentications">Keamanan</div>
               </a>
-              <ul class="menu-sub">
+              <ul class="menu-sub active">
                 <li class="menu-item">
                   <a href="auth-login-basic.html" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Login</div>
+                    <div data-i18n="Basic">Setting Akun</div>
                   </a>
                 </li>
-                <li class="menu-item">
-                  <a href="auth-register-basic.html" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Register</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Forgot Password</div>
-                  </a>
                 </li>
               </ul>
             </li>
@@ -196,10 +188,13 @@
             <!-- Extended components -->
             
 
-            <!-- Forms & Tables -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">lain lain</span></li>
             <!-- Forms -->
-           
+            <li class="menu-item">
+              <a href="#" class="menu-link" id="logout-link">
+                <i class="menu-icon tf-icons bx bx-log-out"></i>
+                <div data-i18n="Authentications" >Log out</div>
+              </a>
           </ul>
         </aside>
 
@@ -303,58 +298,83 @@
 
           <!-- Content wrapper -->
           <div class="content-wrapper">
-
             <div class="container-xxl flex-grow-1 container-p-y">
-            <div class="card">
-            <h5 class="card-header">Data Buku</h5>
-            <div class="card-body">
-              <div class="table-responsive text-nowrap">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>Title</th>
-                      <th>Category</th>
-                      <th>Download</th>
-                      <th>Description</th>
-                      <th>Lain-Lain</th>
-                    </tr>
-                  </thead>
-                  <tbody id="data">
-                    <tr>
-                      <td>
-                        <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong id="judul_buku_"></strong>
-                      </td>
-                      <td id="kategori_buku_table_"></td>
-                      <td style="text-align: center;" id="jumlah_download_">
-                      </td>
-                      <td id="description_">
-                     </td>
-                      <td>
-                        <div class="dropdown">
-                          <button
-                            type="button"
-                            class="btn p-0 dropdown-toggle hide-arrow"
-                            data-bs-toggle="dropdown"
-                          >
-                            <i class="bx bx-dots-vertical-rounded"></i>
-                          </button>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="javascript:void(0);"
-                              ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                            >
-                            <a class="dropdown-item" href="javascript:void(0);"
-                              ><i class="bx bx-trash me-1"></i> Delete</a
-                            >
+                <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Account Settings /</span> Account</h4>
+  
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card mb-4">
+                      <h5 class="card-header">Profile Details</h5>
+                      <!-- Account -->
+                      <div class="card-body">
+                        <div class="d-flex align-items-start align-items-sm-center gap-4">
+                          <img
+                            src="../assets/img/avatars/1.png"
+                            alt="user-avatar"
+                            class="d-block rounded"
+                            height="100"
+                            width="100"
+                            id="uploadedAvatar"
+                          />
+                          <div class="button-wrapper">
+                            <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                              <span class="d-none d-sm-block">Upload new photo</span>
+                              <i class="bx bx-upload d-block d-sm-none"></i>
+                              <input
+                                type="file"
+                                id="upload"
+                                class="account-file-input"
+                                hidden
+                                accept="image/png, image/jpeg"
+                              />
+                            </label>
+                            <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
+                              <i class="bx bx-reset d-block d-sm-none"></i>
+                              <span class="d-none d-sm-block">Reset</span>
+                            </button>
+  
+                            <p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
                           </div>
                         </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                      </div>
+                      <hr class="my-0" />
+                      <div class="card-body">
+                        <form id="formAccountSettings" method="POST" onsubmit="return false">
+                          <div class="row">
+                            <div class="mb-3 col-md-6">
+                              <label for="firstName" class="form-label">Username</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                id="username"
+                                name="username"
+                                value="username"
+                                autofocus
+                              />
+                            </div>
+                            <div class="mb-3 col-md-6">
+                              <label for="firstName" class="form-label">Username</label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                id="username"
+                                name="username"
+                                value="username"
+                                autofocus
+                              />
+                            </div>
+                           
+                          <div class="mt-2">
+                            <button type="submit" class="btn btn-primary me-2">Save changes</button>
+                            <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                          </div>
+                        </form>
+                      </div>
+                      <!-- /Account -->
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-
             <!-- Footer -->
             <footer class="content-footer footer bg-footer-theme">
               <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
@@ -398,7 +418,16 @@
     <!-- build:js assets/vendor/js/core.js -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+   
 
+     <!--connection firestore-->
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  
+    
    
 
     <script src="../assets/vendor/js/menu.js"></script>
@@ -406,25 +435,34 @@
 
 
     <!-- Main JS -->
-    <script type="module" src="/js/form-data-buku.js"></script>
     <script src="../assets/js/main.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-    <script src="/assets/dist/sweetalert2.all.js"></script>
-    <script src="/assets/dist/sweetalert2.all.min.js"></script>
-    <script src="/assets/dist/sweetalert2.js"></script>
-    <script src="/assets/dist/sweetalert2.min.js"></script>
-    <script src="/assets/vendor/js/bootstrap.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    
+
     <!-- Page JS -->
-    
+   
     <script src="../assets/js/dashboards-analytics.js"></script>
     <script src="../js/scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <!-- Place this tag in your head or just before your close body tag. -->
-   
+    <script src="../assets/js/form-data-anggota.js"></script>
+    
+
+
+    <!--js untuk pop up swal fire-->
+    <script src="/assets/dist/sweetalert2.all.min.js"></script>
+    <script src="/assets/dist/sweetalert2.all.js"></script>
+    <script src="/assets/dist/sweetalert2.js"></script>
+    <script src="/assets/dist/sweetalert2.min.js"></script>
+
+
+    <script src="../assets/vendor/js/menu.js"></script>
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="../assets/js/dashboards-analytics.js"></script>
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>
