@@ -17,6 +17,8 @@
 
     <meta name="description" content="" />
 
+    <link rel="stylesheet" href="path/to/select2.css">
+  <link rel="stylesheet" href="path/to/bootstrap.css">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -337,13 +339,11 @@
                             <div class="mb-3 col-md-6">
                               <label for="kategori" class="form-label">kategori</label>
                               <select id="kategori" style="cursor: pointer;" class="select2 form-select">
-                                <option value="">Pilih Kategori</option>
-                                <option value="Horror">Horror</option>
-                                <option value="Sejarah">sejarah</option>
-                                <option value="romance">romance</option>
-                                <option value="sastra">sastra</option>
+                                <option value="" id="pilih_kategori
+                                ">Pilih Kategori</option>
+                                <!-- Opsi kategori akan diperbarui secara otomatis di sini -->
                               </select>
-                            </div>
+                            </div>                            
                             <div class="mb-3 col-md-6" id="uploadedFile">
                               <label for="pdfFile" class="form-label">Pilih File PDF</label>
                               <input class="form-control" type="file" id="pdfFile" name="pdfFile" accept=".pdf">
@@ -357,26 +357,27 @@
                       <!-- /Account -->
                     </div>
                     <div class="card">
-                      <h5 class="card-header">Tambah Kategori Buku</h5>
+                      <h5 class="card-header">Tambah Kategori / Hapus Kategori Buku</h5>
                       <div class="card-body">
                         <div class="mb-3 col-12 mb-0">
                           <div class="alert alert-warning">
-                            <h6 class="alert-heading fw-bold mb-1">Apakah anda ingin Menambahkan Kategori Buku ?</h6>
+                            <h6 class="alert-heading fw-bold mb-1">Apakah anda ingin Menambahkan / Menghapus Kategori Buku ?</h6>
+                           <p>jika ingin menambahkan buku silahkan klik tambah! dan jika ingin menghapus buku,silahkan klik hapus!</p>
                           </div>
                         </div>
                         <div class="mb-3 col-md-6 d-flex align-items-center">
                           <input
                             class="form-control"
                             type="text"
-                            id="kategori_buku"
+                            id="kategori_buku1"
                             name="tambah_kategori_buku"
-                            placeholder="Tambah kategori buku"
+                            placeholder="Tambah / hapus kategori buku"
                           />
-                          <button type="submit" id="saveButton" class="btn btn-primary ms-2">Tambah</button>
-                        </div>
+                          <button type="button" id="saveButton_1" class="btn btn-primary ms-2">Tambah</button>
+                          <button type="button" id="delleteButton_1" class="btn btn-primary ms-2">Hapus </button>
+                        </div>                        
                       </div>
                     </div>
-                    
                   </div>
                 </div>
               </div>

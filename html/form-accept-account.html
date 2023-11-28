@@ -303,46 +303,101 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <div class="card">
-              <h5 class="card-header">Data Buku</h5>
-              <div class="card-body">
-                <div class="table-responsive text-nowrap">
-                  <table class="table table-bordered">
-                    <thead>
-                      <tr>
-                        <th>Judul Buku</th>
-                        <th>Kategori</th>
-                        <th>Download</th>
-                        <th>Deskripsi</th>
-                        <th>Lain-Lain</th>
-                      </tr>
-                    </thead>
-                    <tbody id="data">
-                      <tr>
-                        <td>
-                          <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong id="judul_buku_"></strong>
-                        </td>
-                        <td id="kategori_buku_table_"></td>
-                        <td style="text-align: center;" id="jumlah_download_">
-                        </td>
-                        <td id="description_">
-                       </td>
-                        <td>
-                          <div class="dropdown">
-                            <button
-                              type="button"
-                              class="btn p-0 dropdown-toggle hide-arrow"
-                              data-bs-toggle="dropdown"
-                            >
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Terima Permintaan</h4>
+
+              <!-- Basic Layout & Basic with Icons -->
+              <div class="row">
+                <!-- Basic Layout -->
+                <div class="col-xxl">
+                  <div class="card mb-4">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                      <h5 class="mb-0">Accept </h5>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md mb-4 mb-md-0">
+                          <small class="text-light fw-semibold">Silahkan klik <i class='bx bx-check-square'></i> jika ingin menerima permintaan akses download</small>
+                          <div class="accordion mt-3" id="accordionExample">
+                            <div class="card accordion-item active">
+                              <h2 class="accordion-header" id="headingOne">
+                                <button
+                                  type="button"
+                                  class="accordion-button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#accordionOne"
+                                  aria-expanded="true"
+                                  aria-controls="accordionOne"
+                                >
+                                  Daffa Putra
+                                </button>
+                              </h2>
+        
+                              <div
+                                id="accordionOne"
+                                class="accordion-collapse collapse show"
+                                data-bs-parent="#accordionExample"
                               >
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
+                                <div class="accordion-body">
+                                  Lemon drops chocolate cake gummies carrot cake chupa chups muffin topping. Sesame snaps icing
+                                  marzipan gummi bears macaroon dragée danish caramels powder. Bear claw dragée pastry topping
+                                  soufflé. Wafer gummi bears marshmallow pastry pie.
+                                  <i class='bx bx-message-square-x' style="font-size: 30px; float: right;"></i>
+                                  <i class='bx bx-check-square' style="font-size: 30px; float: right;"></i>
+                                  <!-- -->
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card accordion-item">
+                              <h2 class="accordion-header" id="headingTwo">
+                                <button
+                                  type="button"
+                                  class="accordion-button collapsed"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#accordionTwo"
+                                  aria-expanded="false"
+                                  aria-controls="accordionTwo"
+                                >
+                                  Accordion Item 2
+                                </button>
+                              </h2>
+                              <div
+                                id="accordionTwo"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionExample"
                               >
+                                <div class="accordion-body">
+                                  Dessert ice cream donut oat cake jelly-o pie sugar plum cheesecake. Bear claw dragée oat cake
+                                  dragée ice cream halvah tootsie roll. Danish cake oat cake pie macaroon tart donut gummies.
+                                  Jelly beans candy canes carrot cake. Fruitcake chocolate chupa chups.
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card accordion-item">
+                              <h2 class="accordion-header" id="headingThree">
+                                <button
+                                  type="button"
+                                  class="accordion-button collapsed"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#accordionThree"
+                                  aria-expanded="false"
+                                  aria-controls="accordionThree"
+                                >
+                                  Accordion Item 3
+                                </button>
+                              </h2>
+                              <div
+                                id="accordionThree"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="headingThree"
+                                data-bs-parent="#accordionExample"
+                              >
+                                <div class="accordion-body">
+                                  Oat cake toffee chocolate bar jujubes. Marshmallow brownie lemon drops cheesecake. Bonbon
+                                  gingerbread marshmallow sweet jelly beans muffin. Sweet roll bear claw candy canes oat cake
+                                  dragée caramels. Ice cream wafer danish cookie caramels muffin.
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </td>

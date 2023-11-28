@@ -12,7 +12,7 @@
 
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
   import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-storage.js";
-  import { getDatabase, ref as dbRef, set, onValue } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js';
+  import { getDatabase, ref as dbRef, set, get,remove, onValue } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js';
   
   const firebaseConfig = {
       apiKey: "AIzaSyCvrU2mXPzdc_MvmffICTcFKGTSsCuv11I",
@@ -31,6 +31,9 @@
   const database = getDatabase(firebaseApp);
   
  
+  document.addEventListener("DOMContentLoaded", function() {
+    updateKategoriOptions();    
+  });
 
   
   function showMessage(message) {
@@ -102,3 +105,104 @@ function uploadPDFtoStorage(file) {
             throw error;
         });
 }
+
+
+const saveButton_1 = document.getElementById("saveButton_1");
+const kategoriSelect = document.getElementById("kategori");
+
+saveButton_1.addEventListener("click", async () => {
+    const kategoriInput = document.getElementById("kategori_buku1");
+    const kategoriValue = kategoriInput.value.trim();
+
+    // Check if kategori is empty
+    if (!kategoriValue) {
+        showMessage("Harap isi kolom kategori terlebih dahulu.");
+        return; // Stop execution if kategori is empty
+    }
+
+    var currentTimeMillis = new Date().getTime(); // timestamp
+
+    try {
+        const dataRef = dbRef(database, "Android Category/" + currentTimeMillis);
+        const data = {
+            id: currentTimeMillis,
+            timestamp: currentTimeMillis,
+            category: kategoriValue,
+        };
+
+        await set(dataRef, data);
+
+        showMessage("Data berhasil disimpan ke Realtime Database.");
+
+        // Setelah data disimpan, perbarui opsi kategori
+        updateKategoriOptions();
+
+    } catch (error) {
+        showMessage("Terjadi kesalahan: " + error.message);
+    }
+});
+
+// Fungsi untuk memperbarui opsi kategori
+function updateKategoriOptions() {
+    // Kosongkan semua opsi saat ini
+    kategoriSelect.innerHTML = '<option value="" id="pilih_kategori">Pilih Kategori</option>';
+
+    // Ambil data kategori dari database
+    const kategoriRef = dbRef(database, "Android Category");
+    get(kategoriRef).then((snapshot) => {
+        if (snapshot.exists()) {
+            const categories = snapshot.val();
+            // Tambahkan setiap kategori ke dalam opsi
+            Object.values(categories).forEach((category) => {
+                const option = document.createElement("option");
+                option.value = category.category;
+                option.text = category.category;
+                kategoriSelect.appendChild(option);
+            });
+        }
+    });
+}
+
+
+// Event listener untuk tombol hapus
+const deleteButton = document.getElementById("delleteButton_1");
+deleteButton.addEventListener("click", async () => {
+    const kategoriToDelete = document.getElementById("kategori_buku1").value.trim();
+
+    // Check if kategoriToDelete is empty
+    if (!kategoriToDelete) {
+        showMessage("Harap pilih kategori yang akan dihapus.");
+        return; // Stop execution if kategoriToDelete is empty
+    }
+
+    try {
+        // Ambil data kategori dari database
+        const kategoriRef = dbRef(database, "Android Category");
+        const snapshot = await get(kategoriRef);
+
+        if (snapshot.exists()) {
+            const categories = snapshot.val();
+
+            // Temukan ID kategori yang sesuai dengan nama kategori yang akan dihapus
+            const categoryIdToDelete = Object.keys(categories).find(
+                (key) => categories[key].category === kategoriToDelete
+            );
+
+            // Hapus kategori dari database berdasarkan ID
+            if (categoryIdToDelete) {
+                const categoryRefToDelete = dbRef(database, "Android Category/" + categoryIdToDelete);
+                await remove(categoryRefToDelete);
+
+                showMessage("Kategori berhasil dihapus dari Realtime Database.");
+                // Setelah menghapus, perbarui opsi kategori
+                updateKategoriOptions();
+            } else {
+                showMessage("Kategori tidak ditemukan dalam database.");
+            }
+        } else {
+            showMessage("Tidak ada data kategori di database.");
+        }
+    } catch (error) {
+        showMessage("Terjadi kesalahan saat menghapus: " + error.message);
+    }
+});
