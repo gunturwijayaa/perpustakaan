@@ -29,9 +29,10 @@
     <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="../assets/css/demo.css" />
     <link rel="stylesheet" href="../assets/css/form-dashboard.css">
-   
+    <link rel="stylesheet" href="../assets/css/chart.css">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="/assets/css/form-data-buku.css">
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="/assets/css/table-data-anggota.css">
     <link rel="stylesheet" href="/assets/dist/sweetalert2.css">
     <link rel="stylesheet" href="/assets/dist/sweetalert2.min.css">
 
@@ -90,17 +91,17 @@
               </a>
 
               <ul class="menu-sub">
-                <li class="menu-item ">
+                <li class="menu-item">
                   <a href="form-data-anggota.html" class="menu-link">
                     <div data-i18n="Without menu">Data Anggota</div>
                   </a>
                 </li>
-                <li class="menu-item active">
+                <li class="menu-item ">
                   <a href="form-data-buku.html" class="menu-link">
                     <div data-i18n="Without menu">Data Buku</div>
                   </a>
                 </li>
-                <li class="menu-item ">
+                <li class="menu-item active">
                   <a href="form-data-peminjaman.html" class="menu-link">
                     <div data-i18n="Without menu">Data Peminjaman</div>
                   </a>
@@ -208,152 +209,175 @@
           <!-- Navbar -->
 
           <nav
-          class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-          id="layout-navbar"
-        >
-          <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
-            <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
-              <i class="bx bx-menu bx-sm"></i>
-            </a>
-          </div>
-
-          <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-            <!-- Search -->
-            <div class="navbar-nav align-items-center">
-              <div class="nav-item d-flex align-items-center">
-                <i class="bx bx-search fs-4 lh-0"></i>
-                <input
-                  type="text"
-                  class="form-control border-0 shadow-none"
-                  placeholder="Search..."
-                  aria-label="Search..."
-                />
-              </div>
+            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+            id="layout-navbar"
+          >
+            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                <i class="bx bx-menu bx-sm"></i>
+              </a>
             </div>
-            <!-- /Search -->
 
-            <ul class="navbar-nav flex-row align-items-center ms-auto">
-              <!-- Place this tag where you want the button to render. -->
-             
+            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+              <!-- Search -->
+              <div class="navbar-nav align-items-center">
+                <div class="nav-item d-flex align-items-center">
+                  <i class="bx bx-search fs-4 lh-0"></i>
+                  <input
+                    type="text"
+                    class="form-control border-0 shadow-none"
+                    placeholder="Search..."
+                    aria-label="Search..."
+                  />
+                </div>
+              </div>
+              <!-- /Search -->
 
-              <!-- User -->
-              <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-                  <div class="avatar avatar-online">
-                    <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
-                  </div>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      <div class="d-flex">
-                        <div class="flex-shrink-0 me-3">
-                          <div class="avatar avatar-online">
-                            <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+              <ul class="navbar-nav flex-row align-items-center ms-auto">
+                <!-- Place this tag where you want the button to render. -->
+               
+
+                <!-- User -->
+                <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                  <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                    <div class="avatar avatar-online">
+                      <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                    </div>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0 me-3">
+                            <div class="avatar avatar-online">
+                              <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                            </div>
+                          </div>
+                          <div class="flex-grow-1">
+                            <span class="fw-semibold d-block">John Doe</span>
+                            <small class="text-muted">Admin</small>
                           </div>
                         </div>
-                        <div class="flex-grow-1">
-                          <span class="fw-semibold d-block">John Doe</span>
-                          <small class="text-muted">Admin</small>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <div class="dropdown-divider"></div>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      <i class="bx bx-user me-2"></i>
-                      <span class="align-middle">My Profile</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      <i class="bx bx-cog me-2"></i>
-                      <span class="align-middle">Settings</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      <span class="d-flex align-items-center align-middle">
-                        <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                        <span class="flex-grow-1 align-middle">Billing</span>
-                        <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <div class="dropdown-divider"></div>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="auth-login-basic.html">
-                      <i class="bx bx-power-off me-2"></i>
-                      <span class="align-middle">Log Out</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <!--/ User -->
-            </ul>
-          </div>
-        </nav>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <i class="bx bx-user me-2"></i>
+                        <span class="align-middle">My Profile</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <i class="bx bx-cog me-2"></i>
+                        <span class="align-middle">Settings</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <span class="d-flex align-items-center align-middle">
+                          <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
+                          <span class="flex-grow-1 align-middle">Billing</span>
+                          <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="auth-login-basic.html">
+                        <i class="bx bx-power-off me-2"></i>
+                        <span class="align-middle">Log Out</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <!--/ User -->
+              </ul>
+            </div>
+          </nav>
 
           <!-- / Navbar -->
 
           <!-- Content wrapper -->
           <div class="content-wrapper">
 
-            <div class="container-xxl flex-grow-1 container-p-y">
-            <div class="card">
-            <h5 class="card-header">Data Buku</h5>
-            <div class="card-body">
-              <div class="table-responsive text-nowrap">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>Judul Buku</th>
-                      <th>Kategori</th>
-                      <th>Download</th>
-                      <th>Deskripsi</th>
-                      <th>Lain-Lain</th>
-                    </tr>
-                  </thead>
-                  <tbody id="data">
-                    <tr>
-                      <td>
-                        <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong id="judul_buku_"></strong>
-                      </td>
-                      <td id="kategori_buku_table_"></td>
-                      <td style="text-align: center;" id="jumlah_download_">
-                      </td>
-                      <td id="description_">
-                     </td>
-                      <td>
-                        <div class="dropdown">
-                          <button
-                            type="button"
-                            class="btn p-0 dropdown-toggle hide-arrow"
-                            data-bs-toggle="dropdown"
-                          >
-                            <i class="bx bx-dots-vertical-rounded"></i>
-                          </button>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="javascript:void(0);"
-                              ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                            >
-                            <a class="dropdown-item" href="javascript:void(0);"
-                              ><i class="bx bx-trash me-1"></i> Delete</a
-                            >
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+            <!--chart-->
+          <main>
+            <div class="info-data">
+              <div class="card">
+                <div class="head">
+                  <div>
+                    <h2 class="numbers"></h2>
+                    <p>Anggota</p>
+                  </div>
+                  <ion-icon name="people-outline" style="font-size: 36px;"></ion-icon>
+                </div>
+                <span class="progress" data-value="40%"></span>
+                <span class="label">40%</span>
+              </div>
+              <div class="card">
+                <div class="head">
+                  <div>
+                    <h2 class="numbers-buku"></h2>
+                    <p>Buku</p>
+                  </div>
+                  <ion-icon name="book-outline" style="font-size: 36px;"></ion-icon>
+                </div>
+                <span class="progress" data-value="60%"></span>
+                <span class="label">60%</span>
+              </div>
+              <div class="card">
+                <div class="head">
+                  <div>
+                    <h2>465</h2>
+                    <p>Peminjaman</p>
+                  </div>
+                  <ion-icon name="bookmarks-outline" style="font-size: 36px;"></ion-icon>
+                </div>
+                <span class="progress" data-value="30%"></span>
+                <span class="label">30%</span>
+              </div>
+              <div class="card">
+                <div class="head">
+                  <div>
+                    <h2>235</h2>
+                    <p>Pengembalian</p>
+                  </div>
+                  <ion-icon name="folder-open-outline" style="font-size: 36px;"></ion-icon>
+                </div>
+                <span class="progress" data-value="80%"></span>
+                <span class="label">80%</span>
               </div>
             </div>
-          </div>
+
+            <!--table data anggota-->
+            <section class="table__body">
+              <table>
+                  <thead>
+                      <tr>
+                          <th> No <span class="icon-arrow">&UpArrow;</span></th>
+                          <th> Nim <span class="icon-arrow">&UpArrow;</span></th>
+                          <th> Nama <span class="icon-arrow">&UpArrow;</span></th>
+                          <th> Nomor Hp <span class="icon-arrow">&UpArrow;</span></th>
+                          <th> Prodi <span class="icon-arrow">&UpArrow;</span></th>
+                          <th> Lainnya  <span class="icon-arrow">&UpArrow;</span></th>
+                      </tr>
+                  </thead>
+                  <tbody id="data">
+                      <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td> 
+                      </tr>
+                  </tbody>
+              </table>
+          </section>
+          </main>
 
             <!-- Footer -->
             <footer class="content-footer footer bg-footer-theme">
@@ -400,23 +424,30 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
    
-
-    <script src="../assets/vendor/js/menu.js"></script>
-    <!-- endbuild -->
-
-
-    <!-- Main JS -->
-    <script type="module" src="/js/form-data-buku.js"></script>
-    <script src="../assets/js/main.js"></script>
+    <!--script koneksi ke firestore-->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="../js/form-data-anggota.js"></script>
+   
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+    <script src="/assets/js/data-anggota.js"></script>
+
     <script src="/assets/dist/sweetalert2.all.js"></script>
     <script src="/assets/dist/sweetalert2.all.min.js"></script>
     <script src="/assets/dist/sweetalert2.js"></script>
     <script src="/assets/dist/sweetalert2.min.js"></script>
-    <script src="/assets/vendor/js/bootstrap.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     
     <!-- Page JS -->

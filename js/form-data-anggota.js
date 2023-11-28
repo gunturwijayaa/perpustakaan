@@ -1,12 +1,13 @@
+// Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCvrU2mXPzdc_MvmffICTcFKGTSsCuv11I",
-    authDomain: "authfirebase-552c7.firebaseapp.com",
-    databaseURL: "https://authfirebase-552c7-default-rtdb.firebaseio.com",
-    projectId: "authfirebase-552c7",
-    storageBucket: "authfirebase-552c7.appspot.com",
-    messagingSenderId: "339816014771",
-    appId: "1:339816014771:web:aa0e406a41c651018d21c6"
-    };
+    apiKey: "AIzaSyDxhrpBg9U-EynKM1vidldk9cxsqyG_QhU",
+    authDomain: "dummy-kotlin-libe.firebaseapp.com",
+    databaseURL: "https://dummy-kotlin-libe-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "dummy-kotlin-libe",
+    storageBucket: "dummy-kotlin-libe.appspot.com",
+    messagingSenderId: "259175914565",
+    appId: "1:259175914565:web:2362640b70e84040c2d72c"
+  };
     
       firebase.initializeApp(firebaseConfig);
     
