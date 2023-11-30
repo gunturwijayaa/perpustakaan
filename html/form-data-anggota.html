@@ -24,6 +24,12 @@
     <!--logo di pencarian-->
     <link rel="icon" href="twitter.png" type="assets/img/icon/brands/twitter.png">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.19.0/font/bootstrap-icons.css">
+
+
+
     <!-- Core CSS -->
     <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
@@ -304,80 +310,57 @@
 
           <!-- Content wrapper -->
           <div class="content-wrapper">
-
-            <!--chart-->
-          <main>
-            <div class="info-data">
+            <div class="container-xxl flex-grow-1 container-p-y">
               <div class="card">
-                <div class="head">
-                  <div>
-                    <h2 class="numbers"></h2>
-                    <p>Anggota</p>
-                  </div>
-                  <ion-icon name="people-outline" style="font-size: 36px;"></ion-icon>
+              <h5 class="card-header">Data Anggota</h5>
+              <div class="card-body">
+                <div class="table-responsive text-nowrap">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th style="text-align: center;">Nim</th>
+                        <th style="text-align: center;">Nama</th>
+                        <th style="text-align: center;">Email</th>
+                        <th style="text-align: center;">Permohonan</th>
+                        <th style="text-align: center;">Lain-Lain</th>
+                      </tr>
+                    </thead>
+                    <tbody id="data">
+                      <tr>
+                        <td>
+                          <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong></strong>
+                        </td>
+                        <td ></td>
+                        <td style="text-align: center;">
+                       </td>
+                       <td style="text-align: center;" id="data-permission">
+                       </td>
+                       
+                        <td style="text-align: center;">
+                          <div class="dropdown">
+                            <button
+                              type="button"
+                              class="btn p-0 dropdown-toggle hide-arrow"
+                              data-bs-toggle="dropdown"
+                            >
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="javascript:void(0);"
+                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                              >
+                              <a class="dropdown-item" href="javascript:void(0);"
+                                ><i class="bx bx-trash me-1"></i> Delete</a
+                              >
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-                <span class="progress" data-value="40%"></span>
-                <span class="label">40%</span>
-              </div>
-              <div class="card">
-                <div class="head">
-                  <div>
-                    <h2 class="numbers-buku"></h2>
-                    <p>Buku</p>
-                  </div>
-                  <ion-icon name="book-outline" style="font-size: 36px;"></ion-icon>
-                </div>
-                <span class="progress" data-value="60%"></span>
-                <span class="label">60%</span>
-              </div>
-              <div class="card">
-                <div class="head">
-                  <div>
-                    <h2>465</h2>
-                    <p>Peminjaman</p>
-                  </div>
-                  <ion-icon name="bookmarks-outline" style="font-size: 36px;"></ion-icon>
-                </div>
-                <span class="progress" data-value="30%"></span>
-                <span class="label">30%</span>
-              </div>
-              <div class="card">
-                <div class="head">
-                  <div>
-                    <h2>235</h2>
-                    <p>Pengembalian</p>
-                  </div>
-                  <ion-icon name="folder-open-outline" style="font-size: 36px;"></ion-icon>
-                </div>
-                <span class="progress" data-value="80%"></span>
-                <span class="label">80%</span>
               </div>
             </div>
-
-            <!--table data anggota-->
-            <section class="table__body">
-              <table>
-                  <thead>
-                      <tr>
-                          <th> No <span class="icon-arrow">&UpArrow;</span></th>
-                          <th> Nim <span class="icon-arrow">&UpArrow;</span></th>
-                          <th> Nama <span class="icon-arrow">&UpArrow;</span></th>
-                          <th> Nomor Hp <span class="icon-arrow">&UpArrow;</span></th>
-                          <th> Prodi <span class="icon-arrow">&UpArrow;</span></th>
-                          <th> Lainnya  <span class="icon-arrow">&UpArrow;</span></th>
-                      </tr>
-                  </thead>
-                  <tbody id="data">
-                      <tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td> 
-                      </tr>
-                  </tbody>
-              </table>
-          </section>
-          </main>
 
             <!-- Footer -->
             <footer class="content-footer footer bg-footer-theme">
@@ -428,7 +411,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <script src="../js/form-data-anggota.js"></script>
    
     <script src="../assets/vendor/libs/jquery/jquery.js"></script>
@@ -449,6 +432,7 @@
     <script src="/assets/dist/sweetalert2.js"></script>
     <script src="/assets/dist/sweetalert2.min.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="/assets/vendor/js/bootstrap.js"></script>
     
     <!-- Page JS -->
     

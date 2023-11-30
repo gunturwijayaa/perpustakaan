@@ -14,15 +14,20 @@
 
   // Total Revenue Report Chart - Bar Chart
   // --------------------------------------------------------------------
+  // Mendapatkan referensi ke elemen span untuk menampilkan tahun sekarang
+  
+
+//----------------------------------
+
   const totalRevenueChartEl = document.querySelector('#totalRevenueChart'),
     totalRevenueChartOptions = {
       series: [
         {
-          name: '2021',
+          name: 'download',
           data: [18, 7, 15, 29, 18, 12, 9]
         },
         {
-          name: '2020',
+          name: 'views',
           data: [-13, -18, -9, -14, -5, -17, -15]
         }
       ],
@@ -279,7 +284,7 @@
   const growthChartEl = document.querySelector('#growthChart'),
     growthChartOptions = {
       series: [78],
-      labels: ['Growth'],
+      labels: ['Pertumbuhan'],
       chart: {
         height: 240,
         type: 'radialBar'
@@ -660,3 +665,31 @@
     weeklyExpenses.render();
   }
 })();
+
+var currentYearSpan = document.getElementById('currentYear');
+
+  // Mendapatkan referensi ke elemen dropdown menu
+  var yearDropdown = document.getElementById('yearDropdown');
+  
+  // Mendapatkan tahun sekarang
+  var currentYear = new Date().getFullYear();
+  
+  // Menetapkan tahun sekarang ke dalam elemen span
+  currentYearSpan.innerText = currentYear;
+  
+  // Menambahkan opsi tahun ke dalam dropdown menu (tahun sekarang dan tahun mendatang)
+  for (var year = currentYear; year <= currentYear ; year++) {
+      var yearOption = document.createElement('a');
+      yearOption.className = 'dropdown-item';
+      yearOption.href = 'javascript:void(0);';
+      yearOption.innerText = year;
+  
+      // Menambahkan event listener jika Anda ingin menanggapi klik pada opsi tahun
+      yearOption.addEventListener('click', function() {
+          // Tambahkan logika yang diinginkan ketika opsi tahun dipilih
+          alert('Tahun ' + this.innerText + ' dipilih.');
+      });
+  
+      // Menambahkan opsi tahun ke dalam dropdown menu
+      yearDropdown.appendChild(yearOption);
+  }

@@ -356,7 +356,7 @@
                           <div class="row">
                             <div class="mb-3 col-md-6">
                               <label for="lastName" class="form-label"> Name</label>
-                              <input class="form-control" type="text" name="nama" id="nama" placeholder="Doe" />
+                              <input class="form-control" type="text" name="nama" id="name" placeholder="Doe" />
                             </div>
                             <div class="mb-3 col-md-6">
                               <label for="email" class="form-label">E-mail</label>
@@ -369,50 +369,11 @@
                               />
                             </div>
                             <div class="mb-3 col-md-6">
-                              <label for="organization" class="form-label">nim</label>
-                              <input
-                                type="text"
-                                class="form-control"
-                                id="nim"
-                                name="organization"
-                                placeholder="E41222799"
-                              />
-                            </div>
-                            <div class="mb-3 col-md-6">
-                              <label class="form-label" for="phoneNumber">Phone Number</label>
-                              <div class="input-group input-group-merge">
-                                <span class="input-group-text">(+62)</span>
-                                <input
-                                  type="text"
-                                  id="no_hp"
-                                  name="phoneNumber"
-                                  class="form-control"
-                                  placeholder="895123456"
-                                />
-                              </div>
-                            </div>
-                            <div class="mb-3 col-md-6">
-                              <label for="address" class="form-label">Alamat</label>
-                              <input type="text" class="form-control" id="alamat" name="address" placeholder="jl.tidar purinirwana " />
-                            </div>
-                            <div class="mb-3 col-md-6">
                               <label for="state" class="form-label">Password</label>
                               <input class="form-control" type="password" id="password" name="state" placeholder="************" />
                             </div>
-  
-                            <div class="mb-3 col-md-6">
-                              <label for="prodi" class="form-label">Prodi</label>
-                              <select id="prodi" style="cursor: pointer;" class="select2 form-select">
-                                <option value="">Pilih Prodi</option>
-                                <option value="Teknik_Inforamatika">Teknik Informatika</option>
-                                <option value="Management_Informasi">Management Informasi</option>
-                                <option value="Teknik_Komputer">Teknik Komputer</option>
-                                <option value="bitcoin">Bitcoin</option>
-                              </select>
-                            </div>
-                          </div>
                           <div class="mt-2">
-                            <button type="submit" id="btn_save" class="btn btn-primary me-2 " >Save</button>
+                            <button type="submit" id="btn_save2" class="btn btn-primary me-2 " >Save</button>
                             <button type="reset" class="btn btn-outline-secondary">Cancel</button>
                           </div>
                         </form>
@@ -486,15 +447,15 @@
     </div>
     <!-- / Layout wrapper -->
 
-
+    
     <!--connection firestore-->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script type="module" src="/js/form-tambah-akun-anggota.js"></script>
     
-
+    
+    <script type="module" src="/js/form-tambah-akun-anggota.js"></script>
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

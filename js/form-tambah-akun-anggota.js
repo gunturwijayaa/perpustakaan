@@ -1,71 +1,65 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+import { getDatabase, ref as dbRef,get,set } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js';
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
 
-import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js';
 
-
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDxhrpBg9U-EynKM1vidldk9cxsqyG_QhU",
-  authDomain: "dummy-kotlin-libe.firebaseapp.com",
-  databaseURL: "https://dummy-kotlin-libe-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "dummy-kotlin-libe",
-  storageBucket: "dummy-kotlin-libe.appspot.com",
-  messagingSenderId: "259175914565",
-  appId: "1:259175914565:web:2362640b70e84040c2d72c"
-};
+    apiKey: "AIzaSyDxhrpBg9U-EynKM1vidldk9cxsqyG_QhU",
+    authDomain: "dummy-kotlin-libe.firebaseapp.com",
+    databaseURL: "https://dummy-kotlin-libe-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "dummy-kotlin-libe",
+    storageBucket: "dummy-kotlin-libe.appspot.com",
+    messagingSenderId: "259175914565",
+    appId: "1:259175914565:web:2362640b70e84040c2d72c"
+  };
 
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const auth = getAuth();
 
-    btn_save.addEventListener('click', async (e) => {
-      var nama = document.getElementById('nama').value;
-      var email = document.getElementById('email').value;
-      var nim = document.getElementById('nim').value;
-      var no_hp = document.getElementById('no_hp').value;
-      var alamat = document.getElementById('alamat').value;
-      var password = document.getElementById('password').value;
-      var prodi = document.getElementById('prodi').value; // Mengambil nilai prodi
-    
-      if (nama === '' || email === '' || nim === '' || alamat === '' || password === '' || prodi === '') {
-        alert('Harap isi semua kolom yang wajib diisi dan pilih prodi.');
-      } else {
-        // Menggunakan Firebase Firestore
-        try {
-          // Simpan data ke koleksi "Akun-Anggota"
-          const akunAnggotaDocRef = await addDoc(collection(db, "Akun-Anggota"), {
-            nama: nama,
-            email: email,
-            nim: nim,
-            no_hp: no_hp,
-            alamat: alamat,
-            password: password,
-            prodi: prodi, // Menambahkan prodi ke data
-          });
-    
-          // Simpan data ke koleksi "Anggota"
-          const anggotaDocRef = await addDoc(collection(db, "Anggota"), {
-            nama: nama,
-            nim: nim,
-            no_hp: no_hp,
-            prodi: prodi,
-          });
-    
-          alert('User Telah Ditambahkan dengan ID: ' + akunAnggotaDocRef.id);
-    
-          // Kosongkan nilai semua field input setelah data berhasil ditambahkan
-          document.getElementById('nama').value = '';
-          document.getElementById('email').value = '';
-          document.getElementById('nim').value = '';
-          document.getElementById('no_hp').value = '';
-          document.getElementById('alamat').value = '';
-          document.getElementById('password').value = '';
-          document.getElementById('prodi').value = ''; // Mengosongkan pilihan prodi
-    
-          document.getElementById('btn_save').style.display = 'block';
-        } catch (error) {
-          console.error('Error saat menyimpan data: ', error);
-          alert('Gagal menyimpan data. Silakan coba lagi.');
-        }
-      }
-    });
-    
+const btn_save2 = document.getElementById('btn_save2');
+btn_save2.addEventListener('click', async (e) => {
+    var currentTimeMillis = new Date().getTime();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;    
+
+
+    if (name === '' || email === '' || password === '') {
+        alert('Harap isi semua kolom yang wajib diisi.');
+    } else {
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+
+            const dataRef = dbRef(db, "Users/" + user.uid);
+            const data = {
+                name: name,
+                email: email,
+                profileImage: "",
+                timestamp: currentTimeMillis,
+                uid: user.uid,
+                userType: "user"
+            };
+
+            set(dataRef, data)
+            .then(() => {
+                alert('User Telah Ditambahkan dengan ID: ' + user.uid);
+            }) 
+            .catch((error) => {
+                showMessage("Terjadi kesalahan saat menambahkan akun: " + error.message);
+            });
+
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('password').value = '';
+           
+        }).catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert("Error: " + errorMessage);
+        });
+    }
+});
+
+//error Error: Cannot set properties of null (setting 'value')
