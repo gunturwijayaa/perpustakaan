@@ -20,12 +20,13 @@ const auth = getAuth();
 const btn_save2 = document.getElementById('btn_save2');
 btn_save2.addEventListener('click', async (e) => {
     var currentTimeMillis = new Date().getTime();
+    const nim = document.getElementById('nim').value;
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;    
 
 
-    if (name === '' || email === '' || password === '') {
+    if (nim === '' || name === '' || email === '' || password === '') {
         alert('Harap isi semua kolom yang wajib diisi.');
     } else {
         createUserWithEmailAndPassword(auth, email, password)
@@ -34,6 +35,7 @@ btn_save2.addEventListener('click', async (e) => {
 
             const dataRef = dbRef(db, "Users/" + user.uid);
             const data = {
+                nim: nim,
                 name: name,
                 email: email,
                 profileImage: "",
@@ -50,6 +52,7 @@ btn_save2.addEventListener('click', async (e) => {
                 showMessage("Terjadi kesalahan saat menambahkan akun: " + error.message);
             });
 
+            document.getElementById('nim').value = '';
             document.getElementById('name').value = '';
             document.getElementById('email').value = '';
             document.getElementById('password').value = '';

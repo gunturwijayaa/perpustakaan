@@ -67,25 +67,80 @@ anggotaRef.on('value', (snapshot) => {
 });
 
 
+//download
 const downloadRef = database.ref('Books');
+
+// Inisialisasi jumlah download di luar fungsi mendengarkan
+let jumlahDownload = 0;
 
 // Mendengarkan perubahan pada node "Books"
 downloadRef.on('value', (snapshot) => {
   // Mendapatkan data buku dari snapshot
   const books = snapshot.val();
 
-  // Inisialisasi jumlah download
-  let jumlahDownload = 0;
+  // Setiap kali ada perubahan, reset jumlahDownload menjadi 0
+  jumlahDownload = 0;
 
   if (books) {
-    // Loop melalui setiap buku dan tambahkan ke jumlah sesuai downloadsCount
-    Object.values(books).forEach((book) => {
+    // Loop melalui setiap buku
+    Object.keys(books).forEach((bookId) => {
+      const book = books[bookId];
+
+      // Memeriksa apakah buku memiliki properti downloadsCount
       if (book.downloadsCount) {
+        // Menambahkan downloadsCount buku ke dalam jumlah total
         jumlahDownload += Number(book.downloadsCount, 10) || 0;
+
+        // Menampilkan downloadsCount buku (misalnya, di console)
+        console.log(`DownloadsCount for book ${bookId}: ${book.downloadsCount}`);
       }
     });
   }
 
   // Memperbarui elemen HTML dengan ID "banyakDownload"
-  document.getElementById('banyakDownload').innerText = ` ${jumlahDownload} `;
+  const banyakDownloadElem = document.getElementById('banyakDownload');
+  if (banyakDownloadElem) {
+    banyakDownloadElem.innerText = `${jumlahDownload}`;
+  }
+});
+
+
+
+//views
+
+
+const viewsRef = database.ref('Books');
+
+// Inisialisasi jumlah download di luar fungsi mendengarkan
+let jumlahViews = 0;
+
+// Mendengarkan perubahan pada node "Books"
+viewsRef.on('value', (snapshot) => {
+  // Mendapatkan data buku dari snapshot
+  const views = snapshot.val();
+
+  // Setiap kali ada perubahan, reset jumlahViews menjadi 0
+  jumlahViews = 0;
+
+  if (views) {
+    // Loop melalui setiap buku
+    Object.keys(views).forEach((bookId) => {
+      const view = views[bookId];
+
+      // Memeriksa apakah buku memiliki properti viewsCount
+      if (view.viewsCount) {
+        // Menambahkan viewsCount buku ke dalam jumlah total
+        jumlahViews += Number(view.viewsCount, 10) || 0;
+
+        // Menampilkan viewsCount buku (misalnya, di console)
+        console.log(`viewsCount for book ${bookId}: ${view.viewsCount}`);
+      }
+    });
+  }
+
+  // Memperbarui elemen HTML dengan ID "banyakDownload"
+  const banyakViewsElem = document.getElementById('banyakViews');
+  if (banyakViewsElem) {
+    banyakViewsElem.innerText = `${jumlahViews}`;
+  }
 });

@@ -29,6 +29,7 @@ const firebaseConfig = {
         alert(data.email)
     })
   }
+
   // Mendengarkan klik pada tombol Sign In
   const buttonSignin = document.getElementById('buttonSignin');
 buttonSignin.addEventListener('click', async (e) => {
@@ -58,9 +59,9 @@ buttonSignin.addEventListener('click', async (e) => {
                         last_login: dt.toISOString(),
                     });
 
-                    if (userType === admin) {
+                    if (userType === "admin") {
                         alert("Berhasil login!");
-                        window.Location.href = "/html/form-dashboard.html"; 
+                        window.location.href = "form-dashboard.html"; 
                     } else {
                         alert("Tipe pengguna tidak valid.");
                     }
