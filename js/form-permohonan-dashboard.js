@@ -70,3 +70,5 @@ function fetchDataAndDisplay() {
 
 // Call the function to fetch and display data
 fetchDataAndDisplay();
+
+

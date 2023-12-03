@@ -491,6 +491,19 @@
     <!-- / Layout wrapper -->
 
     
+    <script>
+            // Pada dashboard.html
+      document.addEventListener('DOMContentLoaded', function () {
+        var isLoggedIn = localStorage.getItem('isLoggedIn');
+
+        if (!isLoggedIn) {
+          // Jika pengguna belum login, alihkan kembali ke halaman login
+          window.location.href = 'login.html';
+        }
+      });
+    </script>
+
+    
     <script type="module" src="/js/form-permohonan-dashboard.js"></script>
    
 

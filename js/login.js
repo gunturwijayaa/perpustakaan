@@ -61,7 +61,9 @@ buttonSignin.addEventListener('click', async (e) => {
 
                     if (userType === "admin") {
                         alert("Berhasil login!");
-                        window.location.href = "form-dashboard.html"; 
+                        localStorage.setItem('isLoggedIn', 'true');
+                        window.location.href = 'form-dashboard.html';
+
                     } else {
                         alert("Tipe pengguna tidak valid.");
                     }

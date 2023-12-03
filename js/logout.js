@@ -21,7 +21,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebas
     signOut(auth).then(() => {
       //
       alert('Berhasil Log Out');
-      window.location.href = 'login.html'
+      localStorage.removeItem('isLoggedIn');
+      window.location.href = 'login.html';
     }).catch((error) => {
       //
       const errorCode = error.code;
