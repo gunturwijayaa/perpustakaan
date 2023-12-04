@@ -16,7 +16,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebas
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth();
-  const buttonLogout = document.getElementById('logout-link');
+  const buttonLogout = document.getElementById('logout-link2');
   buttonLogout.addEventListener('click' , ()=>{
 
     signOut(auth).then(() => {

@@ -1,8 +1,20 @@
 <!DOCTYPE html>
 
+<!-- =========================================================
+* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
+==============================================================
+
+* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
+* Created by: ThemeSelection
+* License: You must have a valid license purchased in order to legally use the theme for your project.
+* Copyright ThemeSelection (https://themeselection.com)
+
+=========================================================
+ -->
+<!-- beautify ignore:start -->
 <html
   lang="en"
-  class="light-style layout-menu-fixed"
+  class="light-style customizer-hide"
   dir="ltr"
   data-theme="theme-default"
   data-assets-path="../assets/"
@@ -15,8 +27,15 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
+    <title>login</title>
 
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
     
+    <link rel="stylesheet" href="/assets/dist/sweetalert2.css">
+    <link rel="stylesheet" href="/assets/dist/sweetalert2.min.css">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,23 +43,21 @@
       href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="shortcut icon" href="/assets/img/avatars/1.png" type="image/x-icon">
+
+   
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="../assets/css/demo.css" />
-    <link rel="stylesheet" href="../assets/css/form-dashboard.css">
-    
-    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="/assets/dist/sweetalert2.css">
-    <link rel="stylesheet" href="/assets/dist/sweetalert2.min.css">
-    
-    
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <!-- Page CSS -->
-
-    <!-- Helpers untuk klik navigation-->
+    <!-- Page -->
+    <link rel="stylesheet" href="../assets/vendor/css/pages/page-auth.css" />
+    <!-- Helpers -->
     <script src="../assets/vendor/js/helpers.js"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
@@ -49,533 +66,97 @@
   </head>
 
   <body>
-    <!-- Layout wrapper -->
-    <div class="layout-wrapper layout-content-navbar">
-      <div class="layout-container">
-        <!-- Menu -->
+    <!-- Content -->
 
-        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-          <div class="app-brand demo">
-           
-           
-           
-            
-            <span class="app-brand-text demo menu-text fw-bolder ms-2">Lib - E</span>
-            
-            
+    <div class="container-xxl">
+      <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-inner">
+          <!-- Register -->
+          <div class="card">
+            <div class="card-body">
+              <!-- Logo -->
+              <div class="app-brand justify-content-center">
+                <a href="form-dashboard.html" class="app-brand-link gap-2">
+                  <span class="app-brand-text demo text-body fw-bolder">Lib - E</span>
+                </a>
+              </div>
+              <!-- /Logo -->
+              
 
-            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
-              <i class="bx bx-chevron-left bx-sm align-middle"></i>
-            </a>
+              <form id="formAuthentication" class="mb-3" action="" method="POST" onsubmit="return false">
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="text" class="form-control" id="email1" name="email" placeholder="Enter your email" />
+                </div>
+                <div class="mb-3 form-password-toggle">
+                  <div class="d-flex justify-content-between">
+                    <label class="form-label" for="password">Password</label>
+                    <a href="lupa-password.html">
+                      <small>Forgot Password?</small>
+                    </a>
+                  </div>
+                  <div class="input-group input-group-merge">
+                    <input
+                      type="password"
+                      id="password1"
+                      class="form-control"
+                      name="password"
+                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                      aria-describedby="password"
+                    />
+                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="remember-me" />
+                    <label class="form-check-label" for="remember-me"> Remember Me </label>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <button class="btn btn-primary d-grid w-100" id="buttonSignin" type="submit" >Sign in</button>
+                </div>
+              </form>
+            </div>
           </div>
-
-          <div class="menu-inner-shadow"></div>
-
-          <ul class="menu-inner py-1">
-            <!-- Dashboard -->
-            <li class="menu-item active">
-              <a href="form-dashboard.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Dashboard</div>
-              </a>
-            </li>
-
-             <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">Main Menu</span>
-            </li>
-            <!-- Layouts -->
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Master Data</div>
-              </a>
-
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="form-data-anggota.html" class="menu-link">
-                    <div data-i18n="Without menu">Data Anggota</div>
-                  </a>
-                </li>
-                <li class="menu-item ">
-                  <a href="form-data-buku.html" class="menu-link">
-                    <div data-i18n="Without menu">Data Buku</div>
-                  </a>
-                </li>
-                <li class="menu-item ">
-                  <a href="form-data-peminjaman.html" class="menu-link">
-                    <div data-i18n="Without menu">Data Peminjaman</div>
-                  </a>
-                </li>
-                <li class="menu-item ">
-                  <a href="form-data-pengembalian.html" class="menu-link">
-                    <div data-i18n="Without menu">Data Pengembalian</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-box"></i>
-                <div data-i18n="Layouts">Katalog Buku</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="form-tambah-buku.html" class="menu-link">
-                    <div data-i18n="Without menu">Tambah Buku</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-without-navbar.html" class="menu-link">
-                    <div data-i18n="Without navbar">Kategori Buku</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="menu-item ">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-detail"></i>
-                <div data-i18n="Form Layouts">Terima Permintaan</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item ">
-                  <a href="form-accept-account.html" class="menu-link">
-                    <div data-i18n="Horizontal Form">Anggota</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-             <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">Informasi Akun</span>
-            </li>
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div data-i18n="Account Settings">Tambah Akun</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="form-tambah-akun-admin.html" class="menu-link">
-                    <div data-i18n="Account">Admin</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="form-tambah-akun-anggota.html" class="menu-link">
-                    <div data-i18n="Notifications">Anggota</div>
-                  </a>
-                </li>
-                
-              </ul>
-            </li>
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-                <div data-i18n="Authentications">Keamanan</div>
-              </a>
-              <ul class="menu-sub ">
-                <li class="menu-item">
-                  <a href="form-setting-akun.html" class="menu-link" >
-                    <div data-i18n="Basic">Setting Akun</div>
-                  </a>
-                </li>
-                </li>
-              </ul>
-            </li>
-           
-            <!-- Components -->
-            
-
-            <!-- Extended components -->
-            
-
-            <!-- Forms & Tables -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">lain lain</span></li>
-            <!-- Forms -->
-            <li class="menu-item">
-              <a href="" class="menu-link" id="logout-link">
-                <i class="menu-icon tf-icons bx bx-log-out"></i>
-                <div data-i18n="Authentications" >Log out</div>
-              </a>
-            </li>
-          </ul>
-        </aside>
-
-        <!-- Layout container -->
-        <div class="layout-page">
-          <!-- Navbar -->
-
-          <nav
-            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-            id="layout-navbar"
-          >
-            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
-              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
-                <i class="bx bx-menu bx-sm"></i>
-              </a>
-            </div>
-
-            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-              <!-- Search -->
-              <div class="navbar-nav align-items-center">
-                <div class="nav-item d-flex align-items-center">
-                  <i class="bx bx-search fs-4 lh-0"></i>
-                  <input
-                    type="text"
-                    class="form-control border-0 shadow-none"
-                    placeholder="Search..."
-                    aria-label="Search..."
-                  />
-                </div>
-              </div>
-              <!-- /Search -->
-
-              <ul class="navbar-nav flex-row align-items-center ms-auto">
-                <!-- Place this tag where you want the button to render. -->
-               
-
-                <!-- User -->
-                <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                  <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-                    <div class="avatar avatar-online">
-                      <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
-                    </div>
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-end">
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <div class="d-flex">
-                          <div class="flex-shrink-0 me-3">
-                            <div class="avatar avatar-online">
-                              <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
-                            </div>
-                          </div>
-                          <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">John Doe</span>
-                            <small class="text-muted">Admin</small>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="dropdown-divider"></div>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <i class="bx bx-user me-2"></i>
-                        <span class="align-middle">My Profile</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <i class="bx bx-cog me-2"></i>
-                        <span class="align-middle">Settings</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <span class="d-flex align-items-center align-middle">
-                          <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                          <span class="flex-grow-1 align-middle">Billing</span>
-                          <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="dropdown-divider"></div>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="login.html" >
-                        <i class="bx bx-power-off me-2"></i>
-                        <span class="align-middle">Log Out</span>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <!--/ User -->
-              </ul>
-            </div>
-          </nav>
-
-          <!-- / Navbar -->
-
-          <!-- Content wrapper -->
-          <div class="content-wrapper">
-            <div class="container-xxl flex-grow-1 container-p-y">
-            <div class="row">
-              <div class="col-lg-8 mb-4 order-0">
-                <div class="card">
-                  <div class="d-flex align-items-end row">
-                    <div class="col-sm-7">
-                      <div class="card-body">
-                        <h5 class="card-title text-primary">Selamat datang di library electronic 🎉</h5>
-                        <p class="mb-4">
-                          pusat sumber daya digital yang inovatif. <br> Bersama, mari kita bangun komunitas pembelajaran yang kuat dan dinamis!
-                        </p>
-
-                        <a href="form-data-buku.html" class="btn btn-sm btn-outline-primary">Lihat Buku</a>
-                      </div>
-                    </div>
-                    <div class="col-sm-5 text-center text-sm-left">
-                      <div class="card-body pb-0 px-0 px-md-4">
-                        <img
-                          src="../assets/img/illustrations/man-with-laptop-light.png"
-                          height="140"
-                          alt="View Badge User"
-                          data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                          data-app-light-img="illustrations/man-with-laptop-light.png"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-4 order-1">
-                <div class="row">
-                  <div class="col-lg-6 col-md-12 col-6 mb-4">
-                    <div class="card">
-                      <div class="card-body">
-                        <div class="card-title d-flex align-items-start justify-content-between">
-                          <div class="avatar flex-shrink-0">
-                            <img src="../assets/img/icons/unicons/wallet.png" alt="Credit Card" class="rounded" />
-                          </div>
-                          <div class="dropdown">
-                            <button
-                              class="btn p-0"
-                              type="button"
-                              id="cardOpt4"
-                              data-bs-toggle="dropdown"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
-                              <a class="dropdown-item" href="form-data-buku.html">View More</a>
-                            </div>
-                          </div>
-                        </div>
-                        <span class="d-block mb-1">Buku</span>
-                        <h3 class="card-title text-nowrap mb-2 " id="banyakBuku"></h3>
-                        <small class="text-success fw-semibold"></i> jumlah buku</small>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-md-12 col-6 mb-4">
-                    <div class="card">
-                      <div class="card-body">
-                        <div class="card-title d-flex align-items-start justify-content-between">
-                          <div class="avatar flex-shrink-0">
-                            <img src="../assets/img/icons/unicons/paypal.png" alt="Credit Card" class="rounded" />
-                          </div>
-                          <div class="dropdown">
-                            <button
-                              class="btn p-0"
-                              type="button"
-                              id="cardOpt4"
-                              data-bs-toggle="dropdown"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
-                              <a class="dropdown-item" href="form-data-anggota.html">View More</a>
-                            </div>
-                          </div>
-                        </div>
-                        <span class="d-block mb-1">Anggota</span>
-                        <h3 class="card-title text-nowrap mb-2 " id="banyakAnggota"></h3>
-                        <small class="text-danger fw-semibold"></i>jumlah anggota</small>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Total Revenue -->
-              <div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
-                <div class="card">
-                  <div class="row row-bordered g-0">
-                    <div class="card" style="max-height: 375px; height: 375px;">
-                      <h5 class="card-header">Permohonan</h5>
-                      <div class="card-body">
-                        <div class="table-responsive text-nowrap">
-                          <table class="table table-bordered">
-                            <thead>
-                              <tr>
-                                <th style="text-align: center;">Nim</th>
-                                <th style="text-align: center;">Nama</th>
-                                <th style="text-align: center;">Buku</th>
-                                <th style="text-align: center;">Permohonan</th>
-                              </tr>
-                            </thead>
-                            <tbody id="data">
-                              <tr>
-                                <td>
-                                  <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong></strong>
-                                </td>
-                                <td ></td>
-                                <td style="text-align: center;">
-                               </td>
-                               <td style="text-align: center;" id="data-permission">
-                               </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--/ Total Revenue -->
-              <div class="col-12 col-md-8 col-lg-4 order-3 order-md-2">
-                <div class="row">
-                  <div class="col-6 mb-4">
-                    <div class="card">
-                      <div class="card-body">
-                        <div class="card-title d-flex align-items-start justify-content-between">
-                          <div class="avatar flex-shrink-0">
-                            <img src="../assets/img/icons/unicons/paypal.png" alt="Credit Card" class="rounded" />
-                          </div>
-                        </div>
-                        <span class="d-block mb-1">Download</span>
-                        <h3 class="card-title text-nowrap mb-2 banyakDownload">180</h3>
-                        <small class="text-danger fw-semibold"></i>jumlah download</small>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-6 mb-4">
-                    <div class="card">
-                      <div class="card-body">
-                        <div class="card-title d-flex align-items-start justify-content-between">
-                          <div class="avatar flex-shrink-0">
-                            <img src="../assets/img/icons/unicons/cc-primary.png" alt="Credit Card" class="rounded" />
-                          </div>
-                         
-                        </div>
-                        <span class="fw-semibold d-block mb-1"> Views</span>
-                        <h3 class="card-title mb-2 banyakViews">5000</h3>
-                        <small class="text-success fw-semibold">jumlah views</small>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- </div>
-  <div class="row"> -->
-                  <div class="col-12 mb-4">
-                    <div class="card">
-                      <div class="card-body">
-                        <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
-                          <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
-                            <div class="card-title">
-                              <h5 class="text-nowrap mb-2">Profile Report</h5>
-                              <span class="badge bg-label-warning rounded-pill">Year 2021</span>
-                            </div>
-                            <div class="mt-sm-auto">
-                              <small class="text-success text-nowrap fw-semibold"
-                                ><i class="bx bx-chevron-up"></i> 68.2%</small
-                              >
-                              <h3 class="mb-0">$84,686k</h3>
-                            </div>
-                          </div>
-                          <div id="profileReportChart"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-
-            <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                <div class="mb-2 mb-md-0">
-                  ©
-                  <script>
-                    document.write(new Date().getFullYear());
-                  </script>
-                  , Cek informasi lainnya di 
-                  <a href="https://r.search.yahoo.com/_ylt=AwrgxQvlFjVlSIUnjQxXNyoA;_ylu=Y29sbwNncTEEcG9zAzQEdnRpZANMT0NVSTExM0NfMQRzZWMDc3I-/RV=2/RE=1698006886/RO=10/RU=http%3a%2f%2fjti.polije.ac.id%2fprofil-jti/RK=2/RS=4qOjbVUtZ7SbEL112iWq7B7oeOU-" target="_blank" class="footer-link fw-bolder">JTI Polije</a>
-                </div>
-                
-
-                  
-                  <a
-                    href="https://r.search.yahoo.com/_ylt=AwrjaIrMFTVlspgnDRFXNyoA;_ylu=Y29sbwNncTEEcG9zAzEEdnRpZANMT0NVSTExM0NfMQRzZWMDc3I-/RV=2/RE=1698006604/RO=10/RU=https%3a%2f%2fpolije.ac.id%2f/RK=2/RS=sc..gVZHYcblujxYhkg4TMorbaA-"
-                    target="_blank"
-                    class="footer-link me-4"
-                    >Support Web Polije</a
-                  >
-                </div>
-              </div>
-            </footer>
-            <!-- / Footer -->
-
-            
-          </div>
-          <!-- Content wrapper -->
+          <!-- /Register -->
         </div>
-        <!-- / Layout page -->
       </div>
-
-      <!-- Overlay -->
-      <div class="layout-overlay layout-menu-toggle"></div>
     </div>
-    <!-- / Layout wrapper -->
 
-    
-    <script type="module" src="/js/form-permohonan-dashboard.js"></script>
-   
+    <!-- / Content -->
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="../assets/vendor/js/bootstrap.js"></script>
-   
-
-     <!--connection firestore-->
-     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-  
     
-   
-
-    <script src="../assets/vendor/js/menu.js"></script>
-    <!-- endbuild -->
-    <script type="module" src="/js/form-dashboard.js"></script>
-
-    <!-- Main JS -->
-    <script src="../assets/js/main.js"></script>
-
-    <!-- Page JS -->
-   
-   
-    <script src="../js/scripts.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script src="../assets/js/form-data-anggota.js"></script>
-    <script type="module" src="/js/logout.js"></script>
-
-
-    <!--js untuk pop up swal fire-->
-    <script src="/assets/dist/sweetalert2.all.min.js"></script>
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="/assets/dist/sweetalert2.all.js"></script>
+    <script src="/assets/dist/sweetalert2.all.min.js"></script>
     <script src="/assets/dist/sweetalert2.js"></script>
     <script src="/assets/dist/sweetalert2.min.js"></script>
 
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+     <!--connection firestore-->
+      
+    <script type="module" src="/js/login.js"></script>
     <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
 
     <!-- Main JS -->
     <script src="../assets/js/main.js"></script>
 
     <!-- Page JS -->
-   
-    <script src="/assets/js/dashboards-analytics.js"></script>
-   
+
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>
+ 

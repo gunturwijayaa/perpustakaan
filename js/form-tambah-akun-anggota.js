@@ -25,44 +25,55 @@ btn_save2.addEventListener('click', async (e) => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;    
 
-
     if (nim === '' || name === '' || email === '' || password === '') {
         alert('Harap isi semua kolom yang wajib diisi.');
     } else {
+        // Check if the nim already exists
+        const nimCheckRef = dbRef(db, "Users");
+        const nimSnapshot = await get(nimCheckRef);
+
+        if (nimSnapshot.exists()) {
+            const users = nimSnapshot.val();
+            const isNimExists = Object.values(users).some(user => user.nim === nim);
+
+            if (isNimExists) {
+                alert('NIM sudah terdaftar. Harap gunakan NIM yang berbeda.');
+                return;
+            }
+        }
+
         createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
+            .then((userCredential) => {
+                const user = userCredential.user;
 
-            const dataRef = dbRef(db, "Users/" + user.uid);
-            const data = {
-                nim: nim,
-                name: name,
-                email: email,
-                profileImage: "",
-                timestamp: currentTimeMillis,
-                uid: user.uid,
-                userType: "user"
-            };
+                const dataRef = dbRef(db, "Users/" + user.uid);
+                const data = {
+                    nim: nim,
+                    name: name,
+                    email: email,
+                    profileImage: "",
+                    timestamp: currentTimeMillis,
+                    uid: user.uid,
+                    userType: "user"
+                };
 
-            set(dataRef, data)
-            .then(() => {
-                alert('User Telah Ditambahkan dengan ID: ' + user.uid);
-            }) 
-            .catch((error) => {
-                showMessage("Terjadi kesalahan saat menambahkan akun: " + error.message);
+                set(dataRef, data)
+                    .then(() => {
+                        alert('User Telah Ditambahkan dengan ID: ' + user.uid);
+                    }) 
+                    .catch((error) => {
+                        showMessage("Terjadi kesalahan saat menambahkan akun: " + error.message);
+                    });
+
+                document.getElementById('nim').value = '';
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('password').value = '';
+
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert("Error: " + errorMessage);
             });
-
-            document.getElementById('nim').value = '';
-            document.getElementById('name').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('password').value = '';
-           
-        }).catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            alert("Error: " + errorMessage);
-        });
     }
 });
-
-//error Error: Cannot set properties of null (setting 'value')

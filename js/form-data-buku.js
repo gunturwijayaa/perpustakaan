@@ -45,8 +45,14 @@ const firebaseConfig = {
           newRow.appendChild(titleCell);
 
           var categoryCell = document.createElement('td');
-          categoryCell.innerHTML = book.categoryId || '';
-          newRow.appendChild(categoryCell);
+          var categoryId = book.categoryId;
+          var androidCategoryRef = database.ref('Android Category').child(categoryId);
+          androidCategoryRef.on('value', function(androidSnapshot) {
+            var androidCategory = androidSnapshot.val();
+            categoryCell.innerHTML = androidCategory ? androidCategory.category || '' : '';
+            });
+
+            newRow.appendChild(categoryCell);
 
           var downloadsCell = document.createElement('td');
           downloadsCell.style.textAlign = 'center';
