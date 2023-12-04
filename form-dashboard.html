@@ -507,6 +507,25 @@
 
     <script type="module" src="/js/form-permohonan-dashboard.js"></script>
 
+    <script>
+      
+      function terimaPermintaan(uid) {
+    // Mendapatkan referensi ke data Permissions
+    const permissionRef = firebase.database().ref('Permissions/' + uid);
+
+    // Mengupdate nilai permission menjadi true
+    permissionRef.update({ permission: true })
+        .then(() => {
+            console.log("Permission accepted successfully");
+            // Jika sukses, mungkin Anda ingin melakukan sesuatu setelah menerima permintaan
+        })
+        .catch((error) => {
+            console.error("Error accepting permission:", error);
+        });
+}
+
+    </script>
+
     
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->

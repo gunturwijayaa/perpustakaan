@@ -87,8 +87,8 @@ permissionsRef.on('value', (snapshot) => {
                         const col4 = document.createElement("td");
                         col4.style.textAlign = "center";
                         col4.innerHTML = `
-                          <button type="button" class="btn" style="background-color: #1565C0; font-size: 10px; color: #fff;" onclick="terimaPermintaan('${key}')">Terima</button>
-                          <button type="button" class="btn" style="background-color: #001F3F; font-size: 10px; color: #fff;" onclick="tolakPermintaan('${key}')">Tolak</button>`;
+                          <button type="button" class="btn" style="background-color: #1565C0; font-size: 10px; color: #fff;" onclick="terimaPermintaan('${uid}')">Terima</button>
+                          <button type="button" class="btn" style="background-color: #001F3F; font-size: 10px; color: #fff;" onclick="tolakPermintaan('${uid}')">Tolak</button>`;
                         row.appendChild(col4);
 
                         // Menambahkan baris ke tbody
@@ -105,6 +105,8 @@ permissionsRef.on('value', (snapshot) => {
 }, (error) => {
     console.error("Error getting permissions:", error);
 });
+
+
 
 
 
