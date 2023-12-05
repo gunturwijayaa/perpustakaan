@@ -49,6 +49,7 @@ permissionsRef.on('value', (snapshot) => {
 
                 // Mengambil data buku dari tabel "Books" berdasarkan bookId
                 const bookRef = firebase.database().ref('Books/' + rowData.bookId);
+                
                 bookRef.once('value').then((bookSnapshot) => {
                     const bookData = bookSnapshot.val();
 
@@ -82,18 +83,23 @@ permissionsRef.on('value', (snapshot) => {
                             ? bookData.title
                             : 'Judul Buku Tidak Tersedia';
                         row.appendChild(col3);
-
+                        console.log("bookdata:", bookData.id);
+                        
+                        
                         // Kolom keempat
                         const col4 = document.createElement("td");
                         col4.style.textAlign = "center";
                         col4.innerHTML = `
-                          <button type="button" class="btn" style="background-color: #1565C0; font-size: 10px; color: #fff;" onclick="terimaPermintaan('${uid}')">Terima</button>
-                          <button type="button" class="btn" style="background-color: #001F3F; font-size: 10px; color: #fff;" onclick="tolakPermintaan('${uid}')">Tolak</button>`;
+                            <button type="button" class="btn" style="background-color: #1565C0; font-size: 10px; color: #fff;" onclick="terimaPermintaan('${uid}', '${bookData.id}')">Terima</button>
+                            <button type="button" class="btn" style="background-color: #001F3F; font-size: 10px; color: #fff;" onclick="tolakPermintaan('${uid}')">Tolak</button>`;
+                            
                         row.appendChild(col4);
+
 
                         // Menambahkan baris ke tbody
                         tbody.appendChild(row);
                     }
+                    
                 }).catch((error) => {
                     console.error("Error getting book data:", error);
                 });

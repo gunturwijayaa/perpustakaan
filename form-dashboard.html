@@ -508,12 +508,13 @@
     <script type="module" src="/js/form-permohonan-dashboard.js"></script>
 
     <script>
-      
-      function terimaPermintaan(uid) {
-    // Mendapatkan referensi ke data Permissions
-    const permissionRef = firebase.database().ref('Permissions/' + uid);
+     function terimaPermintaan(uid, bookId) {
+    console.log("UID:", uid);
+    console.log("Book ID:", bookId);
 
-    // Mengupdate nilai permission menjadi true
+    const permissionRef = firebase.database().ref('Permissions/' + uid+"/"+ bookId);
+
+    // Mengupdate nilai permission menjadi true 
     permissionRef.update({ permission: true })
         .then(() => {
             console.log("Permission accepted successfully");
@@ -523,6 +524,7 @@
             console.error("Error accepting permission:", error);
         });
 }
+
 
     </script>
 

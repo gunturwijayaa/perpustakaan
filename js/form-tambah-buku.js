@@ -126,7 +126,7 @@ saveButton_1.addEventListener("click", async () => {
     try {
         const dataRef = dbRef(database, "Android Category/" + currentTimeMillis);
         const data = {
-            id: currentTimeMillis,
+            id: "" + currentTimeMillis,
             timestamp: currentTimeMillis,
             category: kategoriValue,
         };
