@@ -91,14 +91,27 @@ permissionsRef.on('value', (snapshot) => {
                         col4.style.textAlign = "center";
                         col4.innerHTML = `
                             <button type="button" class="btn" style="background-color: #1565C0; font-size: 10px; color: #fff;" onclick="terimaPermintaan('${uid}', '${bookData.id}')">Terima</button>
-                            <button type="button" class="btn" style="background-color: #001F3F; font-size: 10px; color: #fff;" onclick="tolakPermintaan('${uid}')">Tolak</button>`;
+                            <button type="button" class="btn" style="background-color: #001F3F; font-size: 10px; color: #fff;" 
+                            onclick="tolakPermintaan('${uid}', '${bookData.id}')">Tolak</button>`;
                             
                         row.appendChild(col4);
+                        
 
 
                         // Menambahkan baris ke tbody
                         tbody.appendChild(row);
                     }
+                    // Tambahkan event listener untuk tombol hapus di setiap baris
+                    var tombolHapusList = document.querySelectorAll('#tolakPermintaan');
+                    tombolHapusList.forEach(function (tombolHapus) {
+                        tombolHapus.addEventListener('click', function () {
+                            // Dapatkan nilai key dari atribut data-key
+                            var key = this.getAttribute('data-key');
+            
+                            // Panggil fungsi hapusUser
+                            hapusPerm(key, this);
+                        });
+                    });
                     
                 }).catch((error) => {
                     console.error("Error getting book data:", error);

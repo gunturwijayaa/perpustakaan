@@ -40,8 +40,15 @@ const firebaseConfig = {
   function showMessage(message) {
       alert(message);
   }
+
+  const categories = {
+    "Sastra": "1701730046951",
+    // Tambahkan kategori lain di sini sesuai kebutuhan
+  };
   
-  saveButton.addEventListener("click", () => {
+  
+  
+  saveButton.addEventListener("click", async () => {
     const judulBuku = document.getElementById("judul_buku").value.trim();
     const penulis = document.getElementById("penulis").value.trim();
     const deskripsi = document.getElementById("deskripsi").value.trim();
@@ -55,44 +62,66 @@ const firebaseConfig = {
     } else if (!uploadPDF) {
         showMessage("Pilih file PDF terlebih dahulu sebelum mengunggah.");
     } else {
-        uploadPDFtoStorage(uploadPDF) // Ganti dengan fungsi upload PDF yang sesuai
-            .then((url) => {
-                // Simpan URL ke Realtime Database
-                const dataRef = dbRef(database, "Books/" + currentTimeMillis);
-                const data = {
-                    id: currentTimeMillis,
-                    title: judulBuku,
-                    downloadsCount: "0",
-                    timestamp: currentTimeMillis,
-                    categoryId: kategori,
-                    pdf_url: url, // Gunakan properti pdf_url untuk menyimpan URL file PDF
-                    gambar_url: "", // Ganti ini sesuai kebutuhan, misalnya dapat diisi dengan URL gambar jika ada
-                    description: deskripsi,
-                    viewsCount: "0"
-                };
+        try {
+            const url = await uploadPDFtoStorage(uploadPDF);
 
-                // Gunakan set untuk menyimpan data ke Realtime Database
-                set(dataRef, data)
-                    .then(() => {
-                        showMessage("Data berhasil disimpan ke Realtime Database.");
+            // Dapatkan ID kategori secara dinamis
+            const categoryId = await getCategoryIdByName(kategori);
 
-                        const movieBanner = document.getElementById('uploadedFile');
+            // Simpan URL ke Realtime Database
+            const dataRef = dbRef(database, "Books/" + currentTimeMillis);
+            const data = {
+                id: "" + currentTimeMillis,
+                title: judulBuku,
+                downloadsCount: 0,
+                timestamp: currentTimeMillis,
+                categoryId: categoryId,
+                url: url,
+                description: deskripsi,
+                viewsCount: 0
+            };
 
-                        if (movieBanner) {
-                            movieBanner.innerHTML = `<a href="${url}" target="_blank">Tautan PDF</a>`;
-                        } else {
-                            console.error('Elemen div tidak ditemukan.');
-                        }
-                    })
-                    .catch((error) => {
-                        showMessage("Terjadi kesalahan saat menyimpan data: " + error.message);
-                    });
-            })
-            .catch((error) => {
-                showMessage("Terjadi kesalahan saat mendapatkan URL file PDF: " + error.message);
-            });
+            // Gunakan set untuk menyimpan data ke Realtime Database
+            await set(dataRef, data);
+
+            showMessage("Data berhasil disimpan ke Realtime Database.");
+
+            const movieBanner = document.getElementById('uploadedFile');
+
+            if (movieBanner) {
+                movieBanner.innerHTML = `<a href="${url}" target="_blank">Tautan PDF</a>`;
+            } else {
+                console.error('Elemen div tidak ditemukan.');
+            }
+        } catch (error) {
+            showMessage("Terjadi kesalahan: " + error.message);
+        }
     }
 });
+
+// Fungsi asinkron untuk mendapatkan ID kategori berdasarkan nama kategori
+async function getCategoryIdByName(categoryName) {
+    try {
+        // Gantilah ini dengan logika untuk mengambil ID kategori dari sumber data Anda
+        // Misalnya, panggil API atau query database
+        // Disini saya memberikan contoh menggunakan Promise untuk simulasi pengambilan data
+
+        return new Promise((resolve, reject) => {
+            // Simulasikan pengambilan data dari sumber eksternal
+            setTimeout(() => {
+                const categoryId = categories[categoryName];
+                if (categoryId) {
+                    resolve(categoryId);
+                } else {
+                    reject(new Error("Kategori tidak ditemukan"));
+                }
+            }, 500); // Waktu simulasi pengambilan data
+        });
+    } catch (error) {
+        throw new Error("Terjadi kesalahan saat mendapatkan ID kategori: " + error.message);
+    }
+}
+
 
 // Fungsi untuk mengunggah file PDF ke Firebase Storage
 function uploadPDFtoStorage(file) {

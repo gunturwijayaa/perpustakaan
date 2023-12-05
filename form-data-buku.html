@@ -22,7 +22,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
     <!--logo di pencarian-->
-    <link rel="icon" href="twitter.png" type="assets/img/icon/brands/twitter.png">
+    <link rel="shortcut icon" href="/assets/img/avatars/judul_gambar.png" type="image/x-icon">
+
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
@@ -116,7 +117,7 @@
                 </li>
               </ul>
             </li>
-             <li class="menu-header small text-uppercase">
+            <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Informasi Akun</span>
             </li>
             <li class="menu-item">
@@ -138,19 +139,24 @@
                 
               </ul>
             </li>
+           
+           
+            <!-- Components -->
+            
+
+            <!-- Extended components -->
+            
+
+            <!-- Forms & Tables -->
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">lain lain</span></li>
+            <!-- Forms -->
             <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-                <div data-i18n="Authentications">Keamanan</div>
+              <a href="" class="menu-link" id="logout-link">
+                <i class="menu-icon tf-icons bx bx-log-out"></i>
+                <div data-i18n="Authentications" >Log out</div>
               </a>
-              <ul class="menu-sub ">
-                <li class="menu-item">
-                  <a href="form-setting-akun.html" class="menu-link" >
-                    <div data-i18n="Basic">Setting Akun</div>
-                  </a>
-                </li>
-                </li>
-              </ul>
+            </li>
+          </ul>
             </li>
             <!-- Components -->
             
@@ -203,7 +209,7 @@
               <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                   <div class="avatar avatar-online">
-                    <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                    <img src="../assets/img/avatars/profileAdmin.png" alt class="w-px-40 h-auto rounded-circle" />
                   </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
@@ -212,12 +218,11 @@
                       <div class="d-flex">
                         <div class="flex-shrink-0 me-3">
                           <div class="avatar avatar-online">
-                            <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                            <img src="assets/img/avatars/profileAdmin.png" alt class="w-px-40 h-auto rounded-circle" />
                           </div>
                         </div>
                         <div class="flex-grow-1">
-                          <span class="fw-semibold d-block">John Doe</span>
-                          <small class="text-muted">Admin</small>
+                          <span class="fw-semibold d-block" id="namaAdmin" >Admin</span>
                         </div>
                       </div>
                     </a>
@@ -226,17 +231,11 @@
                     <div class="dropdown-divider"></div>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="form-setting-akun.html">
-                      <i class="bx bx-user me-2"></i>
-                      <span class="align-middle">My Profile</span>
-                    </a>
-                  </li>
-                  <li>
                     <a class="dropdown-item" href="form-accept-account.html">
                       <span class="d-flex align-items-center align-middle">
                         <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
                         <span class="flex-grow-1 align-middle">Permohonan</span>
-                        <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
+                        <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20"></span>
                       </span>
                     </a>
                   </li>
@@ -244,9 +243,9 @@
                     <div class="dropdown-divider"></div>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="login.html" >
+                    <a href="#" class="dropdown-item"  id="logout-link2">
                       <i class="bx bx-power-off me-2"></i>
-                      <span class="align-middle">Log Out</span>
+                      <span class="align-middle" >Log Out</span>
                     </a>
                   </li>
                 </ul>
@@ -334,6 +333,17 @@
     </div>
     <!-- / Layout wrapper -->
 
+    <script>
+      // Pada dashboard.html
+document.addEventListener('DOMContentLoaded', function () {
+  var isLoggedIn = localStorage.getItem('isLoggedIn');
+
+  if (!isLoggedIn) {
+    // Jika pengguna belum login, alihkan kembali ke halaman login
+    window.location.href = 'login.html';
+  }
+});
+</script>
     
 
     <!-- Core JS -->

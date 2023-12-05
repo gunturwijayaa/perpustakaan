@@ -437,6 +437,17 @@
     <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
     <script src="../assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
+    <script>
+      // Pada dashboard.html
+document.addEventListener('DOMContentLoaded', function () {
+  var isLoggedIn = localStorage.getItem('isLoggedIn');
+
+  if (!isLoggedIn) {
+    // Jika pengguna belum login, alihkan kembali ke halaman login
+    window.location.href = 'login.html';
+  }
+});
+</script>
 
     
     <script async defer src="https://buttons.github.io/buttons.js"></script>
