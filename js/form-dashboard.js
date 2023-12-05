@@ -144,3 +144,35 @@ viewsRef.on('value', (snapshot) => {
     banyakViewsElem.innerText = `${jumlahViews}`;
   }
 });
+
+
+//jumlah permohonan
+const permissionsRef = database.ref('Permissions');
+permissionsRef.on('value', (snapshot) => {
+  console.log('Snapshot:', snapshot.val()); // Lihat snapshot untuk debugging
+
+  const permissions = snapshot.val();
+  let jumlahPermohonan = 0;
+
+  if (permissions) {
+    Object.keys(permissions).forEach((userId) => {
+      const userPermissions = permissions[userId];
+      
+      Object.keys(userPermissions).forEach((bookId) => {
+        const permission = userPermissions[bookId];
+        
+        if (permission.permission === false) {
+          jumlahPermohonan += 1;
+        }
+      });
+    });
+  }
+
+  console.log('Jumlah Permohonan:', jumlahPermohonan); // Lihat jumlahPermohonan untuk debugging
+
+  // Memperbarui elemen HTML dengan ID "banyakPermohonan"
+  document.getElementById('banyakPermohonan').innerText = jumlahPermohonan.toString();
+});
+
+
+
