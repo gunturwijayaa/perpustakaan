@@ -43,6 +43,11 @@ const firebaseConfig = {
 
   const categories = {
     "Sastra": "1701730046951",
+    "Misteri" : "1698756332294",
+    "Thriller" : "1698831492621",
+    "Romance" : "1701158988414",
+    "Sejarah" : "1701370764994",
+    "horror" : "1701752244199",
     // Tambahkan kategori lain di sini sesuai kebutuhan
   };
   
